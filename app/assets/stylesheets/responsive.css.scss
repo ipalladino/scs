@@ -1,0 +1,29 @@
+@media (max-width:767px) {
+	text-align:center;
+	h1 {
+		font-size:40px;
+	}
+	.navbar-brand {
+		font-size:14px;
+	}
+	.section-hero {
+		h1 {
+			font-size:40px;
+		}
+	}
+	.section-default-imgbottom {
+		img {
+			width:100%;
+		}
+	}
+	.section-cover {
+		h1 {
+			font-size:40px;
+		}
+	}
+	footer {
+		#logo-footer {
+			margin-top:50px;
+		}
+	}
+}

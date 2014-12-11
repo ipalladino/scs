@@ -1,0 +1,31 @@
+<section class="section-fouricons">
+	<div class="container">
+		<div class="row">
+	    <div class="col-lg-12 heading" >
+			<% if(obj[:title]) %>
+	    	<h1><%= obj[:title] %></h1>
+		  <% end %>
+			<% if(obj[:p]) %>
+				<p><%= obj[:p] %></p>
+			<% end %>
+	    </div>
+		</div>
+	  <div class="row iconsrow">
+	    <div class="col-lg-4 col-sm-4 col-sm-offset-1 col-lg-offset-1" >
+	      <i class="<%= obj[:items][0].icon %>"></i> <%= obj[:items][0].p %>
+	    </div>
+			<div class="col-lg-4 col-sm-4 col-sm-offset-2 col-lg-offset-2" >
+	      <i class="<%= obj[:items][1].icon %>"></i> <%= obj[:items][1].p %>
+	    </div>
+	  </div>
+		
+		<div class="row iconsrow">
+	    <div class="col-lg-4 col-sm-4 col-sm-offset-1 col-lg-offset-1" >
+	      <i class="<%= obj[:items][2].icon %>"></i> <%= obj[:items][2].p %>
+	    </div>
+			<div class="col-lg-4 col-sm-4 col-sm-offset-2 col-lg-offset-2" >
+	      <i class="<%= obj[:items][3].icon %>"></i> <%= obj[:items][3].p %>
+	    </div>
+	  </div
+	</div>
+</section>

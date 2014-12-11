@@ -1,0 +1,16 @@
+<section class="section-four-inline">
+	<div class="container">
+	  <div class="row">
+		<% obj[:items].each do |item| %>
+			<div class="col-lg-3 item" >
+	      <div class="icon">
+	      	<i class="<%= item.img %>"></i>
+	      </div>
+				<h1><%= item.h1 %></h1>
+				<p><%= item.p %></p>
+				<p><a href="<%= item.button_link %>" class="btn btn-default" role="button"><%= item.button_text %></a></p>
+	    </div>
+		<% end %>
+	  </div>
+	</div>
+</section>
