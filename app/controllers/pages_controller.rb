@@ -13,7 +13,7 @@ class PagesController < ApplicationController
       
     @section_fouricons = {
       title: "Cost & Value Matters",
-      p: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+      p: "Our goal is to disrupt the market with a better, unique and customized experience for each one of our customers.</p><p>Instead of building a streamlined process that will force everyone into the same framework and become rigid, we want to create a pool of resources, ready to tailor to our customers need, and flexible enough to adapt as the project matures without causing any losses, either of time or money.</p><p>We strive to combine the cutting edge of engineering, innovation and design. At SimepleCustomSolutions we any thought or idea can materialize with the right guidance. We empower our customers by continuing to research into better, faster, and ever more efficient engineering techniques while challenging the results with highly accurate analytics and results.</p>",
       items: [
         SectionFouriconsItem.new("fa fa-laptop", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."),
         SectionFouriconsItem.new("fa fa-bar-chart", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."),
@@ -160,19 +160,27 @@ class PagesController < ApplicationController
     )
     
     @section_cover = SectionDefault.new(
-      "Communicate, Reach, Increase your Revenue",
+      "Expand to new horizons, reach further and beyond.",
       "",
-      "/assets/background-revenue.jpeg",
+      "/assets/background-earth.jpg",
+    )
+    
+    @section_default_imgleft = SectionDefault.new(
+      "Numbers Never Lie",
+      "Be ahead of your time, think big and don't be afraid of looking at the results. In the era of information, we can track progress every step we take, and make our decisions based on real impact instead of wild guesses",
+      "/assets/image-side-analytics.png",
+      "#",
+      "Learn More"
     )
       
     @section_fouricons = {
-      title: "Concilliate Design and Engineering",
-      p: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+      title: "Concilliate Design and Engineering, Improve",
+      p: "Our goal is to disrupt the market with a better, unique and customized experience for each one of our customers.</p><p>Instead of building a streamlined process that will force everyone into the same framework and become rigid, we want to create a pool of resources, ready to tailor to our customers need, and flexible enough to adapt as the project matures without causing any losses, either of time or money.</p><p>We strive to combine the cutting edge of engineering, innovation and design. At SimepleCustomSolutions we believe that any thought or idea can materialize with the right guidance. We empower our customers by continuing to research into better, faster, and ever more efficient engineering techniques while challenging the results with highly accurate analytics.</p>",
       items: [
-        SectionFouriconsItem.new("fa fa-laptop", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."),
-        SectionFouriconsItem.new("fa fa-bar-chart", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."),
-        SectionFouriconsItem.new("fa fa-credit-card", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."),
-        SectionFouriconsItem.new("fa fa-institution", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.")
+        SectionFouriconsItem.new("fa fa-bolt", "Disrupt by being better, provide a unique and customized experience for each customer. Look forward, imagine and innovate."),
+        SectionFouriconsItem.new("fa fa-cogs", "Create a pool of resources, ready to tailer to our customers need, flexible enough to adapt as the project matures and evolves."),
+        SectionFouriconsItem.new("fa fa-money", "Be efficient, keep the costs at minimum while maintaining the highest industry standards, without compromising in any ends"),
+        SectionFouriconsItem.new("fa fa-bar-chart", "Challenge our results with highly accurate analytics and A/B testing. Look at the infalible information and react to it.")
       ]
     }
   end
