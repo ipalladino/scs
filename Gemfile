@@ -40,7 +40,7 @@ gem 'annotate', '~> 2.6.5'
 # gem 'capistrano-rails', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'byebug'
 
 gem 'rails_12factor', group: :production
 

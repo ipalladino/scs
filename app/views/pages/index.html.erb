@@ -1,17 +1,27 @@
-<%= render "shared/section_hero", obj: @section_hero %>
+<h1>Listing pages</h1>
 
-<%= render "shared/section_whyscs", obj: @section_whyscs %>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
-<%= render "shared/section_fouricons", obj: @section_fouricons %>
+  <tbody>
+    <% @pages.each do |page| %>
+      <tr>
+        <td><%= page.title %></td>
+        <td><%= page.description %></td>
+        <td><%= link_to 'Show', page %></td>
+        <td><%= link_to 'Edit', edit_page_path(page) %></td>
+        <td><%= link_to 'Destroy', page, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<%= render "shared/section_default_imgleft", obj: @section_default_imgleft %>
+<br>
 
-<%= render "shared/section_default_imgbottom", obj: @section_default_imgbottom %>
-
-<%= render "shared/section_three_cards", obj: @section_three_cards %>
-
-<%= render "shared/section_carousel_intro", obj: @section_carousel_intro %>
-
-<%= render "shared/section_cover", obj: @section_cover %>
-
-<%= render "shared/section_four_inline", obj: @section_four_inline %>
+<%= link_to 'New Page', new_page_path %>

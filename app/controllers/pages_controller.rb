@@ -1,65 +1,103 @@
 class PagesController < ApplicationController
+  before_action :set_page, only: [:show, :edit, :update, :destroy]
+
+  # GET /pages
+  # GET /pages.json
   def index
-    # section 1
-    @section_hero = GenericItem.new(
-      title: "INSPIRE, INNOVATE, CREATE", 
-      description: "We will go above and beyond to convey emotion, and tell a beautiful story about your product", 
-      graphic: "/assets/wallpaper2.jpg"
-    )
-    
-    # section 2
-    @section_whyscs = GenericItem.new(
-      title: "Why Simple Custom Solutions?", 
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum", 
-      graphic: "/assets/whyscs.jpg")
-      
-    # section 3  
-    @section_fouricons = GenericItem.find(3)
-    
-    @section_default_imgleft = GenericItem.find(9)
-    
-    @section_default_imgbottom = GenericItem.find(10)
-    
-    @section_three_cards = GenericItem.find(11)
-    
-    @section_carousel_intro = GenericItem.find(15)
-    
-    @section_cover = GenericItem.find(21)
-    
-    @section_four_inline = GenericItem.find(26)
-    
+    @pages = Page.all
+  end
+
+  # GET /pages/1
+  # GET /pages/1.json
+  def show
+    # get items to show beneath page, in order for the user to select
+    @generic_items = GenericItem.all
+  end
+
+  def preview
+    @page = Page.find(params[:id])
   end
   
-  def ourvision
-    @section_hero = SectionHero.new(
-      h1: "OUR VISION, IMAGINE AND CREATE", 
-      p: "We will go above and beyond to convey emotion, and tell a beautiful story about your product", 
-      img: "/assets/wallpaper_ourvision.jpg"
-    )
-    
-    @section_cover = SectionDefault.new(
-      "Expand to new horizons, reach further and beyond.",
-      "",
-      "/assets/background-earth.jpg",
-    )
-    
-    @section_default_imgleft = SectionDefault.new(
-      "Numbers Never Lie",
-      "Be ahead of your time, think big and don't be afraid of looking at the results. In the era of information, we can track progress every step we take, and make our decisions based on real impact instead of wild guesses",
-      "/assets/image-side-analytics.png",
-      "#",
-      "Learn More"
-    )
-      
-    @section_fouricons = {
-      title: "Concilliate Design and Engineering, Improve",
-      p: "Our goal is to disrupt the market with a better, unique and customized experience for each one of our customers.</p><p>Instead of building a streamlined process that will force everyone into the same framework and become rigid, we want to create a pool of resources, ready to tailor to our customers need, and flexible enough to adapt as the project matures without causing any losses, either of time or money.</p><p>We strive to combine the cutting edge of engineering, innovation and design. At SimepleCustomSolutions we believe that any thought or idea can materialize with the right guidance. We empower our customers by continuing to research into better, faster, and ever more efficient engineering techniques while challenging the results with highly accurate analytics.</p>",
-      items: [
-        SectionFouriconsItem.new("fa fa-bolt", "Disrupt by being better, provide a unique and customized experience for each customer. Look forward, imagine and innovate."),
-        SectionFouriconsItem.new("fa fa-cogs", "Create a pool of resources, ready to tailer to our customers need, flexible enough to adapt as the project matures and evolves."),
-        SectionFouriconsItem.new("fa fa-money", "Be efficient, keep the costs at minimum while maintaining the highest industry standards, without compromising in any ends"),
-        SectionFouriconsItem.new("fa fa-bar-chart", "Challenge our results with highly accurate analytics and A/B testing. Look at the infalible information and react to it.")
-      ]
-    }
+  # GET /pages/new
+  def new
+    @page = Page.new
   end
+
+  # GET /pages/1/edit
+  def edit
+  end
+
+  # POST /pages
+  # POST /pages.json
+  def create
+    @page = Page.new(page_params)
+
+    respond_to do |format|
+      if @page.save
+        format.html { redirect_to @page, notice: 'Page was successfully created.' }
+        format.json { render :show, status: :created, location: @page }
+      else
+        format.html { render :new }
+        format.json { render json: @page.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PATCH/PUT /pages/1
+  # PATCH/PUT /pages/1.json
+  def update
+    respond_to do |format|
+      if @page.update(page_params)
+        format.html { redirect_to @page, notice: 'Page was successfully updated.' }
+        format.json { render :show, status: :ok, location: @page }
+      else
+        format.html { render :edit }
+        format.json { render json: @page.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /pages/1
+  # DELETE /pages/1.json
+  def destroy
+    @page.destroy
+    respond_to do |format|
+      format.html { redirect_to pages_url, notice: 'Page was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+  
+  def add_item
+    @page = Page.find(params[:id])
+    if(gitem = GenericItem.find(params[:item_id]))
+      @page.generic_items << gitem
+      render json: @page
+      return
+    end
+    render json: {status: "error"}
+    return
+  end
+  
+  def remove_item
+    @page = Page.find(params[:id])
+    if(gitem = GenericItem.find(params[:item_id]))
+      gitem = @page.generic_items.find(params[:item_id])
+      @page.generic_items.delete(gitem)
+      render json: @page
+      return
+    end
+    render json: {status: "error"}
+    return
+  end
+  
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_page
+      @page = Page.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def page_params
+      params.require(:page).permit(:title, :description)
+    end
 end

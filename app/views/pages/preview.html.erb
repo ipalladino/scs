@@ -1,0 +1,21 @@
+<% @page.generic_items.each do |item| %>
+	<% if(item.component == 1) %>
+		<%= render "shared/section_hero", obj: item %>
+	<% elsif(item.component == 2)%>
+		<%= render "shared/section_whyscs", obj: item %>
+	<% elsif(item.component == 3)%>
+		<%= render "shared/section_fouricons", obj: item %>
+	<% elsif(item.component == 4)%>
+		<%= render "shared/section_default_imgleft", obj: item %>
+	<% elsif(item.component == 5)%>
+		<%= render "shared/section_default_imgbottom", obj: item %>
+	<% elsif(item.component == 6)%>
+		<%= render "shared/section_three_cards", obj: item %>
+	<% elsif(item.component == 7) %>
+		<%= render "shared/section_carousel_intro", obj: item %>
+	<% elsif(item.component == 8) %>
+		<%= render "shared/section_cover", obj: item %>
+	<% elsif(item.component == 9) %>
+		<%= render "shared/section_four_inline", obj: item %>
+	<% end %>
+<% end %>

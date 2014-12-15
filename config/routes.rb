@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  resources :pages do
+    member do
+      get 'add_item'
+      get 'remove_item'
+      get 'preview'
+    end
+  end
+
   resources :generic_items do
     member do
       get 'preview'
@@ -6,8 +14,8 @@ Rails.application.routes.draw do
   end
   #get 'generic_items/:id/preview' => 'generic_items#preview', as: :generic_item
 
-  get '/' => 'pages#index'
-  get '/company/ourvision' => 'pages#ourvision'
+  get '/' => 'static_pages#index'
+  get '/company/ourvision' => 'static_pages#ourvision'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
