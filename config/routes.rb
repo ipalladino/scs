@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  resources :generic_items do
+    member do
+      get 'preview'
+    end
+  end
+  #get 'generic_items/:id/preview' => 'generic_items#preview', as: :generic_item
+
   get '/' => 'pages#index'
   get '/company/ourvision' => 'pages#ourvision'
   

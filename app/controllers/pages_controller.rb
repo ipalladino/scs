@@ -1,154 +1,32 @@
 class PagesController < ApplicationController
   def index
-    @section_hero = SectionHero.new(
-      h1: "INSPIRE, INNOVATE, CREATE", 
-      p: "We will go above and beyond to convey emotion, and tell a beautiful story about your product", 
-      img: "/assets/wallpaper2.jpg"
+    # section 1
+    @section_hero = GenericItem.new(
+      title: "INSPIRE, INNOVATE, CREATE", 
+      description: "We will go above and beyond to convey emotion, and tell a beautiful story about your product", 
+      graphic: "/assets/wallpaper2.jpg"
     )
     
-    @section_whyscs = SectionHero.new(
-      h1: "Why Simple Custom Solutions?", 
-      p: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum", 
-      img: "/assets/whyscs.jpg")
+    # section 2
+    @section_whyscs = GenericItem.new(
+      title: "Why Simple Custom Solutions?", 
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum", 
+      graphic: "/assets/whyscs.jpg")
       
-    @section_fouricons = {
-      title: "Cost & Value Matters",
-      p: "Our goal is to disrupt the market with a better, unique and customized experience for each one of our customers.</p><p>Instead of building a streamlined process that will force everyone into the same framework and become rigid, we want to create a pool of resources, ready to tailor to our customers need, and flexible enough to adapt as the project matures without causing any losses, either of time or money.</p><p>We strive to combine the cutting edge of engineering, innovation and design. At SimepleCustomSolutions we any thought or idea can materialize with the right guidance. We empower our customers by continuing to research into better, faster, and ever more efficient engineering techniques while challenging the results with highly accurate analytics and results.</p>",
-      items: [
-        SectionFouriconsItem.new("fa fa-laptop", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."),
-        SectionFouriconsItem.new("fa fa-bar-chart", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."),
-        SectionFouriconsItem.new("fa fa-credit-card", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."),
-        SectionFouriconsItem.new("fa fa-institution", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.")
-      ]
-    }
+    # section 3  
+    @section_fouricons = GenericItem.find(3)
     
-    @section_default_imgleft = SectionDefault.new(
-      "Graphic Example",
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
-      "/assets/graphic_fpo.png",
-      "#",
-      "Learn More"
-    )
+    @section_default_imgleft = GenericItem.find(9)
     
-    @section_default_imgbottom = SectionDefault.new(
-      "Ipad Bottom Example",
-      "With Ipad at the bottom Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
-      "/assets/ipad_analytics.png",
-      "#",
-      "Learn More"
-    )
+    @section_default_imgbottom = GenericItem.find(10)
     
+    @section_three_cards = GenericItem.find(11)
     
-    @section_thumbnail = {
-      title: "Clients",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitatio. o laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laboru.",
-      items: [
-        SectionDefault.new(
-          "SAMBA.TV",
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitatio",
-          "/assets/client-hotlist.png",
-          "#",
-          "Learn More"
-        ),
-        SectionDefault.new(
-          "STITCHER",
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitatio",
-          "/assets/client-stitcher.png",
-          "#",
-          "Read More"
-        ),
-        SectionDefault.new(
-          "SPLUNK",
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitatio",
-          "/assets/client-splunk.png",
-          "#",
-          "Learn More"
-        )
-      ]
-    }
+    @section_carousel_intro = GenericItem.find(15)
     
-    @section_carousel_intro = {
-      title: "Clients",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitatio. o laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laboru.",
-      items: [
-        SectionDefault.new(
-          "UI & UX",
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitatio",
-          "/assets/carousel-intro-1.png",
-          "#",
-          "Learn More"
-        ),
-        SectionDefault.new(
-          "MOBILE",
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitatio",
-          "/assets/carousel-intro-2.png",
-          "#",
-          "Read More"
-        ),
-        SectionDefault.new(
-          "BIG DATA & HIGH PERFORMANCE",
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitatio",
-          "/assets/carousel-intro-3.png",
-          "#",
-          "Learn More"
-        ),
-        SectionDefault.new(
-          "WEB APPLICATIONS",
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitatio",
-          "/assets/carousel-intro-4.png",
-          "#",
-          "Learn More"
-        ),
-        SectionDefault.new(
-          "WEB MARKETING",
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitatio",
-          "/assets/carousel-intro-5.png",
-          "#",
-          "Learn More"
-        )
-      ]
-    }
+    @section_cover = GenericItem.find(21)
     
-    @section_cover = SectionDefault.new(
-      "Communicate, Reach, Increase your Revenue",
-      "",
-      "/assets/background-revenue.jpeg",
-    )
-    
-    @section_four_inline = {
-      title: "Four Inline",
-      description: "Description",
-      items: [
-        SectionDefault.new(
-          "Rename Lore",
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitatio",
-          "fa fa-laptop",
-          "#",
-          "Learn More"
-        ),
-        SectionDefault.new(
-          "Nomern Fotrs",
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitatio",
-          "fa fa-credit-card",
-          "#",
-          "Read More"
-        ),
-        SectionDefault.new(
-          "Sactirio Lerno",
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitatio",
-          "fa fa-institution",
-          "#",
-          "Learn More"
-        ),
-        SectionDefault.new(
-          "Sactirio Lerno",
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitatio",
-          "fa fa-bar-chart",
-          "#",
-          "Learn More"
-        )
-      ]
-    }
+    @section_four_inline = GenericItem.find(26)
     
   end
   

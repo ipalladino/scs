@@ -1,0 +1,19 @@
+<% if(@generic_item.component == 1) %>
+	<%= render "shared/section_hero", obj: @generic_item %>
+<% elsif(@generic_item.component == 2)%>
+	<%= render "shared/section_whyscs", obj: @generic_item %>
+<% elsif(@generic_item.component == 3)%>
+	<%= render "shared/section_fouricons", obj: @generic_item %>
+<% elsif(@generic_item.component == 4)%>
+	<%= render "shared/section_default_imgleft", obj: @generic_item %>
+<% elsif(@generic_item.component == 5)%>
+	<%= render "shared/section_default_imgbottom", obj: @generic_item %>
+<% elsif(@generic_item.component == 6)%>
+	<%= render "shared/section_three_cards", obj: @generic_item %>
+<% elsif(@generic_item.component == 7) %>
+	<%= render "shared/section_carousel_intro", obj: @generic_item %>
+<% elsif(@generic_item.component == 8) %>
+	<%= render "shared/section_cover", obj: @generic_item %>
+<% elsif(@generic_item.component == 9) %>
+	<%= render "shared/section_four_inline", obj: @generic_item %>
+<% end %>

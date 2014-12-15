@@ -14,3 +14,7 @@
  *= require_self
  *= require bootstrap_config
  */
+
+body {
+	padding-top:51px;
+}

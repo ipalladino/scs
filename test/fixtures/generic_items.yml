@@ -1,0 +1,31 @@
+# == Schema Information
+#
+# Table name: generic_items
+#
+#  id             :integer          not null, primary key
+#  title          :string(255)
+#  description    :text
+#  graphic        :string(255)
+#  button_link    :string(255)
+#  button_text    :string(255)
+#  created_at     :datetime
+#  updated_at     :datetime
+#  component      :integer
+#  parent_item_id :integer
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyString
+  graphic: MyString
+  button_link: MyString
+  button_text: MyString
+
+two:
+  title: MyString
+  description: MyString
+  graphic: MyString
+  button_link: MyString
+  button_text: MyString
