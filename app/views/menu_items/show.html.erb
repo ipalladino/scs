@@ -28,17 +28,37 @@
 			</p>
 			
 			<p>
-			  sub items:
-				<ul>
-				<% @menu_item.child_items.each do |item| %>
-					<li>
-					<%
-						item_link_text = "Item ID:#{item.id}, #{item.title}"
-					%>
-					<b><%= link_to item_link_text, item %> </b></br>
-					</li>
-				<% end %>
-				</ul>
+			  sub items: <br />
+			
+				<table class="table table-striped table-bordered">
+				  <thead>
+				    <tr>
+				      <th>Title</th>
+				      <th>Description</th>
+				      <th>Url</th>
+				      <th>Parent item</th>
+							<th>Priority</th>
+				      <th colspan="3"></th>
+				    </tr>
+				  </thead>
+
+				  <tbody>
+				    <% @menu_item.child_items.each do |menu_item| %>
+				      <tr>
+				        <td><%= menu_item.title %></td>
+				        <td><%= menu_item.description %></td>
+				        <td><%= menu_item.url %></td>
+				        <td><%= menu_item.parent_item_id %></td>
+								<td><%= menu_item.priority %></td>
+				        <td><%= link_to 'Show', menu_item %></td>
+				        <td><%= link_to 'Edit', edit_menu_item_path(menu_item) %></td>
+				        <td><%= link_to 'Destroy', menu_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+				      </tr>
+				    <% end %>
+				  </tbody>
+				</table>
+				
+	
 			</p>
 			
 			<table class="table table-striped table-bordered">
