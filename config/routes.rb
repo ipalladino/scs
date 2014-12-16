@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  resources :menu_items do
+    member do
+      get 'link_page'
+      get 'unlink_page'
+    end
+  end
+
   resources :pages do
     member do
       get 'add_item'
@@ -14,7 +21,8 @@ Rails.application.routes.draw do
   end
   #get 'generic_items/:id/preview' => 'generic_items#preview', as: :generic_item
 
-  get '/' => 'static_pages#index'
+  get '/:section/:name' => 'static_pages#home'
+  get '/:section' => 'static_pages#home'
   get '/company/ourvision' => 'static_pages#ourvision'
   
   # The priority is based upon order of creation: first created -> highest priority.

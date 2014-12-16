@@ -1,6 +1,18 @@
 class StaticPagesController < ApplicationController
-  def index
+  def home
+    begin
+      @page = Page.where({url: request.path})[0]
+      render template: "pages/preview"
+      return
+    rescue
+      redirect_to "/404.html"
+      return
+    end
+  end
+  
+  def indexi
     # section 1
+    
     @section_hero = GenericItem.new(
       title: "INSPIRE, INNOVATE, CREATE", 
       description: "We will go above and beyond to convey emotion, and tell a beautiful story about your product", 
