@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   resources :pages do
     member do
+      get 'update_order'
       get 'add_item'
       get 'remove_item'
       get 'preview'

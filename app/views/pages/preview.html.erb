@@ -1,4 +1,4 @@
-<% @page.generic_items.each do |item| %>
+<% @page.generic_items.order("priority ASC").each do |item| %>
 	<% if(item.component == 1) %>
 		<%= render "shared/section_hero", obj: item %>
 	<% elsif(item.component == 2)%>

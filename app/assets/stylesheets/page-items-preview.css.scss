@@ -1,0 +1,24 @@
+.page-items-preview {
+  border:1px solid #d7d7d7;
+  img {
+    width:100%;
+  }
+  > ul {
+    padding-left: 0px;
+    > li {
+      cursor:move;
+      list-style-type: none;
+      display:block;
+      border-bottom:1px solid #d7d7d7;
+      position:relative;
+      .options {
+        position:absolute;
+        top:0px;
+        left:0px;
+        background-color: #fff;
+        padding:5px;
+        box-shadow: 1px 1px 5px #000;
+      }
+    }
+  }
+}

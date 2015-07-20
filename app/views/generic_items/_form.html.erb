@@ -86,6 +86,11 @@
           <% end %>
         <% end %>
 
+        <div class="field" id="generic-item-priority">
+          <%= f.label :priority %><br>
+          <%= f.text_field :priority, class: "form-control"  %>
+        </div>
+
         <% if(@generic_item.parent) %>
   				<div class="field">
   			    <%= f.label :parent_item_id %><br>

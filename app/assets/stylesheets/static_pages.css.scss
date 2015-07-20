@@ -31,7 +31,7 @@ header {
 	  	background-image: -webkit-linear-gradient(top, #000000, #222222);
 	  	background-image:         linear-gradient(to bottom, #000000, #222222);
 		*/
-		
+
 	}
 	.dropdown-menu {
 		font-size:.9em;
@@ -54,10 +54,10 @@ header {
 	div {
 		height:100%;
 	}
-	
+
 	color:#ffffff;
 	overflow:hidden;
-	
+
 	.container {
 		position:relative;
 	}
@@ -70,7 +70,7 @@ header {
 	}
 	p {
 		font-weight:lighter;
-	}	
+	}
 }
 
 .section-whyscs {
@@ -102,11 +102,11 @@ header {
 	.iconsrow {
 		margin-bottom:20px;
 	}
-	
+
 	>.container .row:nth-child(2) {
 		margin-top:50px;
 	}
-	
+
 	i {
 		font-size: 70px;
 		padding-right:16px;
@@ -174,15 +174,15 @@ header {
 }
 
 .section-cover {
+	color:#000;
 	height:600px;
 	background: linear-gradient(
-	      rgba(0, 0, 0, 0.5), 
+	      rgba(0, 0, 0, 0.5),
 	      rgba(0, 0, 0, 0.5)
 	    ),
 	url(/assets/background-revenue.jpeg);
 	background-size:cover;
 	h1 {
-		color:white;
 		text-align:center;
 		position: absolute;
 		top: 50%;

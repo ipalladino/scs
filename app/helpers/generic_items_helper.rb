@@ -22,4 +22,28 @@ module GenericItemsHelper
       return "Unknown"
     end
   end
+
+  def translate_component_image(id)
+    if(id == 1)
+      return "/assets/sections/section-hero.png"
+    elsif(id == 2)
+      return "/assets/sections/section-hero_2.png"
+    elsif(id == 3)
+      return "/assets/sections/section-four_icons_rows.png"
+    elsif(id == 4)
+      return "/assets/sections/section-default_left.png"
+    elsif(id == 5)
+      return "/assets/sections/section-default_bottom.png"
+    elsif(id == 6)
+      return "/assets/sections/section-three_cards.png"
+    elsif(id == 7)
+      return "/assets/sections/section-carousel.png"
+    elsif(id == 8)
+      return "/assets/sections/section-big_cover.png"
+    elsif(id == 9)
+      return "/assets/sections/section-four_icons_inline.png"
+    else
+      return "Unknown"
+    end
+  end
 end

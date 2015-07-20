@@ -13,25 +13,31 @@
 
   <div class="field">
     <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :url %><br>
-    <%= f.text_field :url %>
+    <%= f.text_field :url, class: "form-control" %>
   </div>
 	<div class="field">
     <%= f.label :priority %><br>
-    <%= f.text_field :priority %>
+    <%= f.text_field :priority, class: "form-control" %>
   </div>
+  <br />
+  <% if(@menu_item.parent) %>
+    Parent: <%= link_to(@menu_item.parent.title, @menu_item.parent) %>
+  <% end %>
+  <br />
+  <br />
   <div class="field">
-    <%= f.label :parent_item_id %><br>
-    <%= f.number_field :parent_item_id %>
+    <%= f.hidden_field :parent_item_id %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <input type="submit" class="btn" name="name" value="Submit">
   </div>
+  <br />
 <% end %>

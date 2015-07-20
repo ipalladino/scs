@@ -3,7 +3,7 @@
 //# You can use CoffeeScript in this file: http://coffeescript.org/
 
 
-pages = function() {
+$(function() {
   $(".add-generic-item-to-page").on("click", function(e) {
   /*
     data
@@ -11,9 +11,7 @@ pages = function() {
       e.currentTarget.dataset.pageId
   */
     var url = "add_item";
-    if($(e.currentTarget).html().trim() == "Remove") {
-      url = "remove_item"
-    }
+
     $.ajax({
       url : "/pages/"+e.currentTarget.dataset.pageId+"/"+url,
       method : "get",
@@ -21,19 +19,29 @@ pages = function() {
         item_id : e.currentTarget.dataset.id
       }
     }).done(function(response){
-      if($(e.currentTarget).text().trim() == "Remove") {
-        $(e.currentTarget).html("Add This item");
-        $(e.currentTarget).removeClass("btn-danger");
-        $(e.currentTarget).addClass("btn-success");
-
-      } else {
-        $(e.currentTarget).html("Remove");
-        $(e.currentTarget).removeClass("btn-success");
-        $(e.currentTarget).addClass("btn-danger");
-      }
+      //need to do something?
     });
+    location.reload();
   });
-}
 
-$(document).on('page:load', pages);
-$(document).on('page:change', pages);
+  $(".item-remove").on("click", function(e) {
+  /*
+    data
+      e.currentTarget.dataset.id
+      e.currentTarget.dataset.pageId
+  */
+    e.preventDefault();
+    var url = "remove_item";
+
+    $.ajax({
+      url : "/pages/"+e.currentTarget.dataset.pageId+"/"+url,
+      method : "get",
+      data : {
+        item_id : e.currentTarget.dataset.id
+      }
+    }).done(function(response){
+
+    });
+    location.reload();
+  });
+});

@@ -11,13 +11,13 @@ class PagesController < ApplicationController
   # GET /pages/1.json
   def show
     # get items to show beneath page, in order for the user to select
-    @generic_items = GenericItem.all
+    @generic_items = GenericItem.where("is_default = true")
   end
 
   def preview
     @page = Page.find(params[:id])
   end
-  
+
   # GET /pages/new
   def new
     @page = Page.new
@@ -66,10 +66,20 @@ class PagesController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
+
   def add_item
     @page = Page.find(params[:id])
     if(gitem = GenericItem.find(params[:item_id]))
+      child_items = []
+      if(gitem.child_items.length > 0)
+        gitem.child_items.each do |subitem|
+          child_items << subitem.dup
+        end
+      end
+      gitem = gitem.dup
+      gitem.is_default = false
+      gitem.child_items = child_items
+      gitem.save
       @page.generic_items << gitem
       render json: @page
       return
@@ -77,7 +87,7 @@ class PagesController < ApplicationController
     render json: {status: "error"}
     return
   end
-  
+
   def remove_item
     @page = Page.find(params[:id])
     if(gitem = GenericItem.find(params[:item_id]))
@@ -89,7 +99,18 @@ class PagesController < ApplicationController
     render json: {status: "error"}
     return
   end
-  
+
+  def update_order
+    @page = Page.find(params[:id])
+    params[:order].each do |p|
+      item = @page.generic_items.find(p[0])
+      item.priority = p[1]
+      item.save
+    end
+    render json: @page
+    return
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_page

@@ -28,6 +28,7 @@ class GenericItemsController < ApplicationController
 
   # GET /generic_items/1/edit
   def edit
+    session[:return_to] ||= request.referer
     if(@generic_item.parent)
       @defaults = GenericItem.available_fields(@generic_item.parent.component.to_s, true)
     end
@@ -59,7 +60,7 @@ class GenericItemsController < ApplicationController
   def update
     respond_to do |format|
       if @generic_item.update(generic_item_params)
-        format.html { redirect_to @generic_item, notice: 'Generic item was successfully updated.' }
+        format.html { redirect_to session.delete(:return_to), notice: 'Generic item was successfully updated.' }
         format.json { render :show, status: :ok, location: @generic_item }
       else
         format.html { render :edit }
@@ -86,6 +87,6 @@ class GenericItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def generic_item_params
-      params.require(:generic_item).permit(:title, :description, :graphic, :button_link, :button_text, :component, :parent_item_id)
+      params.require(:generic_item).permit(:title, :description, :graphic, :button_link, :button_text, :component, :parent_item_id, :priority)
     end
 end

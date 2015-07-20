@@ -33,8 +33,13 @@ class MenuItemsController < ApplicationController
 
     respond_to do |format|
       if @menu_item.save
-        format.html { redirect_to @menu_item, notice: 'Menu item was successfully created.' }
-        format.json { render :show, status: :created, location: @menu_item }
+        if(@menu_item.parent)
+          format.html { redirect_to @menu_item.parent, notice: 'Menu item was successfully created.' }
+          format.json { render :show, status: :created, location: @menu_item }
+        else
+          format.html { redirect_to @menu_item, notice: 'Menu item was successfully created.' }
+          format.json { render :show, status: :created, location: @menu_item }
+        end
       else
         format.html { render :new }
         format.json { render json: @menu_item.errors, status: :unprocessable_entity }
@@ -65,7 +70,7 @@ class MenuItemsController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
+
   def link_page
     @menu_item = MenuItem.find(params[:id])
     if(pitem = Page.find(params[:item_id]))
@@ -76,7 +81,7 @@ class MenuItemsController < ApplicationController
     render json: {status: "error"}
     return
   end
-  
+
   def unlink_page
     @menu_item = MenuItem.find(params[:id])
     if(pitem = Page.find(params[:item_id]))

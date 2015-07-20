@@ -1,4 +1,4 @@
-ready = function() {
+$(function() {
   $("#components").on("change", function(e){
     e.preventDefault();
     $.ajax({
@@ -34,7 +34,4 @@ ready = function() {
       }
     });
   });
-}
-
-$(document).on('page:load', ready);
-$(document).on('page:change', ready);
+});
