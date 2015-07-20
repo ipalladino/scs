@@ -4,7 +4,7 @@
       <h1>Listing Generic Items</h1>
 
 			<%= link_to 'New Generic item', new_generic_item_path, class: "btn btn-default" %>
-			
+
 			<br>
 			<br>
 
@@ -40,12 +40,14 @@
 			        <td><%= link_to 'Edit', edit_generic_item_path(generic_item) %></td>
 			        <td><%= link_to 'Destroy', generic_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 			      </tr>
-					<% end %>	
+					<% end %>
 			    <% end %>
 			  </tbody>
 			</table>
 
 			<%= link_to 'New Generic item', new_generic_item_path, class: "btn btn-default" %>
+      <br>
+      <br>
     </div>
   </div>
 </div>

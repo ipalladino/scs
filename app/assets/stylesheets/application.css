@@ -18,3 +18,8 @@
 body {
 	padding-top:51px;
 }
+
+section {
+	border-bottom:1px solid #d7d7d7;
+	overflow:hidden;
+}

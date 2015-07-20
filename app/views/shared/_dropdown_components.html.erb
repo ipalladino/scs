@@ -1,4 +1,4 @@
-<select name="generic_item[component]" class="form-control">
+<select name="generic_item[component]" class="form-control" id="components">
 	<option value="">None</option>
 	<option <%= obj.component == 1 ? "selected" : "" %> value="1"><%= translate_component(1) %></option>
 	<option <%= obj.component == 2 ? "selected" : "" %> value="2"><%= translate_component(2) %></option>
@@ -7,6 +7,6 @@
 	<option <%= obj.component == 5 ? "selected" : "" %> value="5"><%= translate_component(5) %></option>
 	<option <%= obj.component == 6 ? "selected" : "" %> value="6"><%= translate_component(6) %></option>
 	<option <%= obj.component == 7 ? "selected" : "" %> value="7"><%= translate_component(7) %></option>
-	<option <%= obj.component == 8 ? "selected" : "" %> value="8"><%= translate_component(8) %></option>	
-	<option <%= obj.component == 9 ? "selected" : "" %> value="9"><%= translate_component(9) %></option>	
+	<option <%= obj.component == 8 ? "selected" : "" %> value="8"><%= translate_component(8) %></option>
+	<option <%= obj.component == 9 ? "selected" : "" %> value="9"><%= translate_component(9) %></option>
 </select>

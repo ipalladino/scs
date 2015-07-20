@@ -11,7 +11,7 @@ class GenericItemsController < ApplicationController
   # GET /generic_items/1.json
   def show
   end
-  
+
   def preview
     @generic_item = GenericItem.find(params[:id])
   end
@@ -22,11 +22,20 @@ class GenericItemsController < ApplicationController
       @generic_item = GenericItem.new
     else
       @generic_item = GenericItem.new(parent_item_id: params[:parent_item_id])
+      @defaults = GenericItem.available_fields(@generic_item.parent.component.to_s, true)
     end
   end
 
   # GET /generic_items/1/edit
   def edit
+    if(@generic_item.parent)
+      @defaults = GenericItem.available_fields(@generic_item.parent.component.to_s, true)
+    end
+  end
+
+  def get_default
+    @defaults = GenericItem.available_fields(params[:component])
+    render json: @defaults
   end
 
   # POST /generic_items

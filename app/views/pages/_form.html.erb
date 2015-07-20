@@ -13,17 +13,19 @@
 
   <div class="field">
     <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, class: "form-control" %>
   </div>
 	<div class="field">
     <%= f.label :url %><br>
-    <%= f.text_area :url %>
+    <%= f.text_field :url, class: "form-control" %>
   </div>
+  <br>
   <div class="actions">
-    <%= f.submit %>
+    <input type="submit" class="btn" name="name" value="Submit">
   </div>
+  <br>
 <% end %>

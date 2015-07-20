@@ -14,35 +14,86 @@
 			    </div>
 			  <% end %>
 
-			  <div class="field">
-			    <%= f.label :title %><br>
-			    <%= f.text_field :title, class: "form-control" %>
-			  </div>
-			  <div class="field">
-			    <%= f.label :description %><br>
-					<%= f.text_area :description, class: "form-control"  %>
-			  </div>
-			  <div class="field">
-			    <%= f.label :graphic %><br>
-			    <%= f.text_field :graphic, class: "form-control"  %>
-			  </div>
-			  <div class="field">
-			    <%= f.label :button_link %><br>
-			    <%= f.text_field :button_link, class: "form-control"  %>
-			  </div>
-			  <div class="field">
-			    <%= f.label :button_text %><br>
-			    <%= f.text_field :button_text, class: "form-control"  %>
-			  </div>
-				<div class="field">
-			    <%= f.label :component %><br>
-			    <!-- <%= f.text_field :component %> -->
-					<%= render "shared/dropdown_components", obj: @generic_item %>
-			  </div>
-				<div class="field">
-			    <%= f.label :parent_item_id %><br>
-			    <%= f.text_field :parent_item_id %>
-			  </div>
+        <% if(!@generic_item.parent_item_id) %>
+  				<div class="field">
+  			    <%= f.label :component %><br>
+  			    <!-- <%= f.text_field :component %> -->
+  					<%= render "shared/dropdown_components", obj: @generic_item %>
+  			  </div>
+        <% end %>
+
+        <% if(@generic_item.parent) %>
+        <div class="">
+          <%= link_to "parent", @generic_item.parent %>
+          <ul>
+            <li>Type: <strong><%= translate_component(@generic_item.parent.component) %></strong></li>
+            <li>Title: <%= @generic_item.parent.title %></li>
+          </ul>
+        </div>
+        <% end %>
+
+        <% if(!@generic_item.parent) %>
+  			  <div class="field" id="generic-item-title">
+  			    <%= f.label :title %><br>
+  			    <%= f.text_field :title, class: "form-control" %>
+  			  </div>
+  			  <div class="field" id="generic-item-description">
+  			    <%= f.label :description %><br>
+  					<%= f.text_area :description, class: "form-control"  %>
+  			  </div>
+  			  <div class="field" id="generic-item-graphic">
+  			    <%= f.label :graphic %><br>
+  			    <%= f.text_field :graphic, class: "form-control"  %>
+  			  </div>
+  			  <div class="field" id="generic-item-button-link">
+  			    <%= f.label :button_link %><br>
+  			    <%= f.text_field :button_link, class: "form-control"  %>
+  			  </div>
+  			  <div class="field" id="generic-item-button-text">
+  			    <%= f.label :button_text %><br>
+  			    <%= f.text_field :button_text, class: "form-control"  %>
+  			  </div>
+        <% else %>
+          <% if(@defaults[:title]) %>
+            <div class="field" id="generic-item-title">
+              <%= f.label :title %><br>
+              <%= f.text_field :title, class: "form-control" %>
+            </div>
+          <% end %>
+          <% if(@defaults[:description]) %>
+            <div class="field" id="generic-item-description">
+              <%= f.label :description %><br>
+              <%= f.text_area :description, class: "form-control"  %>
+            </div>
+          <% end %>
+          <% if(@defaults[:graphic]) %>
+            <div class="field" id="generic-item-graphic">
+              <%= f.label :graphic %><br>
+              <%= f.text_field :graphic, class: "form-control"  %>
+            </div>
+          <% end %>
+          <% if(@defaults[:button_link]) %>
+            <div class="field" id="generic-item-button-link">
+              <%= f.label :button_link %><br>
+              <%= f.text_field :button_link, class: "form-control"  %>
+            </div>
+          <% end %>
+          <% if(@defaults[:button_text]) %>
+            <div class="field" id="generic-item-button-text">
+              <%= f.label :button_text %><br>
+              <%= f.text_field :button_text, class: "form-control"  %>
+            </div>
+          <% end %>
+        <% end %>
+
+        <% if(@generic_item.parent) %>
+  				<div class="field">
+  			    <%= f.label :parent_item_id %><br>
+            <%= @generic_item.parent_item_id %>
+  			    <%= f.hidden_field :parent_item_id %>
+  			  </div>
+        <% end %>
+
 			  <div class="actions">
 			    <%= f.submit "Submit" , class: "btn btm-default", style: "margin-top:20px;" %>
 			  </div>
