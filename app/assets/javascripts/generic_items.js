@@ -1,6 +1,19 @@
 $(function() {
   $("#components").on("change", function(e){
     e.preventDefault();
+    updateSelect();
+  });
+
+  $('#generic-item-color input[type=text]').minicolors()
+  $('#generic-item-background-color input[type=text]').minicolors()
+
+  if($("#components").length > 0) {
+    if($("#components")[0].value != "") {
+      updateSelect();
+    }
+  }
+
+  function updateSelect() {
     $.ajax({
       url : "/generic_items/get_default",
       data : {
@@ -33,5 +46,5 @@ $(function() {
         $("#generic-item-button-text").show();
       }
     });
-  });
+  }
 });

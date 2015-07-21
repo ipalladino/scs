@@ -9,7 +9,8 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-	      <a class="navbar-brand" href="/"><img src="/assets/logo_thumb.png" />SIMPLE CUSTOM SOLUTIONS</a>
+				<% template = get_active_template %>
+	      <a class="navbar-brand" href="/"><img src="<%= template.header_logo %>" />SIMPLE CUSTOM SOLUTIONS</a>
 	    </div>
 
 	    <!-- Collect the nav links, forms, and other content for toggling -->

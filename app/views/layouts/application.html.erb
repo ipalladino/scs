@@ -22,6 +22,44 @@
 	<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
 	<meta name="msapplication-TileColor" content="#da532c">
 	<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+
+  <% template = get_active_template %>
+  <style media="screen">
+    html, body {
+      background-color: <%= template.body_background_color %>;
+      color: <%= template.body_font_color %>;
+    }
+    header .navbar {
+      background-color: <%= template.header_background_color %>;
+      color: <%= template.header_font_color %>;
+    }
+    .navbar-default .navbar-nav > li > a {
+      color: <%= template.header_font_color %>;
+    }
+    .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+      background-color:  <%= template.header_open_background_color %>;
+      color: <%= template.header_open_font_color; %>
+    }
+    .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+      color: <%= template.dropdown_menu_hover_font_color %>;
+      background-color: <%= template.dropdown_menu_hover_background_color %>;
+    }
+    .dropdown-menu > li > a {
+      color: <%= template.dropdown_menu_font_color %>;
+    }
+    footer {
+      background-image: linear-gradient(to bottom,  <%= template.footer_top_background_gradient %>,  <%= template.footer_bottom_background_gradient %>) !important;
+      color: <%= template.footer_font_color %>;
+    }
+    footer b, footer h4 {
+      color: <%= template.footer_header_color %>;
+    }
+    footer a {
+      color: <%= template.footer_link_color %>;
+    }
+
+  </style>
+
 </head>
 <body>
 <%= render "shared/header" %>

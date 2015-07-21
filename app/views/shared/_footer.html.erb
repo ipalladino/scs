@@ -53,7 +53,7 @@
 						</div>
 				  </div>
 				</div>
-	
+
         <!-- form role="form" action="/mail.php" method="get">
           <div class="form-group">
             <label for="email">Email Address</label>
@@ -76,7 +76,8 @@
       <div class="col-lg-4 col-sm-4">
         <div id="logo-footer">
           <div>
-            <img src="/assets/logo.png" alt="" /></br></br>
+            <% template = get_active_template %>
+            <img src="<%= template.footer_logo %>" alt="" /></br></br>
             All rights reserved<br />
             Built by Simple Custom Solutions
           </div>

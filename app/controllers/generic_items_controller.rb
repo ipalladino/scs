@@ -87,6 +87,6 @@ class GenericItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def generic_item_params
-      params.require(:generic_item).permit(:title, :description, :graphic, :button_link, :button_text, :component, :parent_item_id, :priority)
+      params.require(:generic_item).permit(:title, :description, :graphic, :button_link, :button_text, :component, :parent_item_id, :priority, :background_color, :color)
     end
 end

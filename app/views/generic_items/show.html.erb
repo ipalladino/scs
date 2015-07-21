@@ -42,7 +42,7 @@
       </p>
 			<% end %>
 
-      <% if(!@generic_item.parent) %>
+      <% if(!@generic_item.parent && @generic_item.has_sub_items) %>
         <div class="">
           sub items:
           <table class="table">
@@ -62,7 +62,7 @@
 				new_item_link = "/generic_items/new?parent_item_id=#{@generic_item.id}"
 			%>
 
-      <% if(!@generic_item.parent_item_id) %>
+      <% if(!@generic_item.parent_item_id && @generic_item.has_sub_items) %>
         <%= link_to 'Add Sub Item', new_item_link , class: "btn btn-default" %> |
       <% end %>
 			<%= link_to 'Edit', edit_generic_item_path(@generic_item), class: "btn btn-default"  %> |

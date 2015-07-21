@@ -29,6 +29,13 @@ class GenericItem < ActiveRecord::Base
     end
   end
 
+  def has_sub_items()
+    if(self.component == 3 || self.component == 6 || self.component == 7 || self.component == 9)
+      return true
+    end
+    return false
+  end
+
   def self.available_fields(component, ischild=nil)
     if(!ischild)
       if(component == "1") #hero

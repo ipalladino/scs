@@ -1,0 +1,48 @@
+<%= form_for(@template) do |f| %>
+  <% if @template.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@template.errors.count, "error") %> prohibited this template from being saved:</h2>
+
+      <ul>
+      <% @template.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row show-template">
+    <div class="col-lg-6">
+      <table class="table table-bordered" style="border-color:#000 !important;">
+        <tr class="acolorpicker"><td><%= f.label :body_background_color %></td><td><%= f.text_field :body_background_color %></td></tr>
+        <tr class="acolorpicker"><td><%= f.label :body_font_color %></td><td><%= f.text_field :body_font_color %></td></tr>
+        <tr class="acolorpicker"><td><%= f.label :header_background_color %></td><td><%= f.text_field :header_background_color %></td></tr>
+        <tr class="acolorpicker"><td><%= f.label :header_font_color %></td><td><%= f.text_field :header_font_color %></td></tr>
+        <tr class="acolorpicker"><td><%= f.label :header_open_background_color %><br></td><td>  <%= f.text_field :header_open_background_color %></td></tr>
+        <tr class="acolorpicker"><td><%= f.label :header_open_font_color %></td><td><%= f.text_field :header_open_font_color %></td></tr>
+        <tr class="acolorpicker"><td><%= f.label :dropdown_menu_hover_background_color %></td><td><%= f.text_field :dropdown_menu_hover_background_color %></td></tr>
+        <tr class="acolorpicker"><td><%= f.label :dropdown_menu_hover_font_color %></td><td><%= f.text_field :dropdown_menu_hover_font_color %></td></tr>
+        <tr class="acolorpicker"><td><%= f.label :dropdown_menu_font_color %></td><td><%= f.text_field :dropdown_menu_font_color %></td></tr>
+      </table>
+    </div>
+    <div class="col-lg-6">
+      <table class="table table-bordered" style="border-color:#000 !important;">
+        <tr class=""><td><%= f.label :header_logo %></td><td><%= f.text_field :header_logo %></td></tr>
+        <tr class=""><td><%= f.label :footer_logo %></td><td><%= f.text_field :footer_logo %></td></tr>
+        <tr class="acolorpicker"><td><%= f.label :footer_top_background_gradient %></td><td><%= f.text_field :footer_top_background_gradient %></td></tr>
+        <tr class="acolorpicker"><td><%= f.label :footer_bottom_background_gradient %></td><td><%= f.text_field :footer_bottom_background_gradient %></td></tr>
+        <tr class="acolorpicker"><td><%= f.label :footer_header_color %></td><td><%= f.text_field :footer_header_color %></td></tr>
+        <tr class="acolorpicker"><td><%= f.label :footer_link_color %></td><td><%= f.text_field :footer_link_color %></td></tr>
+        <tr class="acolorpicker"><td><%= f.label :footer_font_color %></td><td><%= f.text_field :footer_font_color %></td></tr>
+        <tr class="template-active"><td><%= f.label :active %><br></td><td> <%= f.text_field :active %></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="">
+    <div class="actions">
+      <input type="submit" class="btn btn-default" name="name" value="Submit"><br/><br/>
+    </div>
+  </div>
+
+<% end %>

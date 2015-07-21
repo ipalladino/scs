@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :templates
+
   resources :menu_items do
     member do
       get 'link_page'

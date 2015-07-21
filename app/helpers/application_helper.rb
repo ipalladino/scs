@@ -7,4 +7,8 @@ module ApplicationHelper
   def is_admin
     return true
   end
+
+  def get_active_template
+    template = Template.where(active: true)[0]
+  end
 end

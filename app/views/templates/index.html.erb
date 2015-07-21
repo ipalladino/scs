@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <% @templates.each do |template| %>
+      <div class="row">
+        <h1>Template ID: <%= template.id %></h1>
+      </div>
+      <div class="row show-template">
+        <div class="col-lg-6">
+          <table class="table table-bordered" style="border-color:#000 !important;">
+            <tr class="acolorpicker"><td>body_background_color</td><td><span class="colorbox" style="background-color:<%= template.body_background_color %>"></span> <%= template.body_background_color %></td></tr>
+            <tr class="acolorpicker"><td>body_font_color</td><td><span class="colorbox" style="background-color:<%= template.body_font_color %>"></span><%= template.body_font_color %></td></tr>
+            <tr class="acolorpicker"><td>header_background_color</td><td><span class="colorbox" style="background-color:<%= template.header_background_color %>"></span><%= template.header_background_color %></td></tr>
+            <tr class="acolorpicker"><td>header_font_color</td><td><span class="colorbox" style="background-color:<%= template.header_font_color %>"></span><%= template.header_font_color %></td></tr>
+            <tr class="acolorpicker"><td>header_open_background_color<br></td><td><span class="colorbox" style="background-color:<%= template.header_open_background_color %>"></span><%= template.header_open_background_color %></td></tr>
+            <tr class="acolorpicker"><td>header_open_font_color</td><td><span class="colorbox" style="background-color:<%= template.header_open_font_color %>"></span><%= template.header_open_font_color %></td></tr>
+            <tr class="acolorpicker"><td>dropdown_menu_hover_background_color</td><td><span class="colorbox" style="background-color:<%= template.dropdown_menu_hover_background_color %>"></span><%= template.dropdown_menu_hover_background_color %></td></tr>
+            <tr class="acolorpicker"><td>dropdown_menu_hover_font_color</td><td><span class="colorbox" style="background-color:<%= template.dropdown_menu_hover_font_color %>"></span><%= template.dropdown_menu_hover_font_color %></td></tr>
+            <tr class="acolorpicker"><td>dropdown_menu_font_color</td><td><span class="colorbox" style="background-color:<%= template.dropdown_menu_font_color %>"></span><%= template.dropdown_menu_font_color %></td></tr>
+          </table>
+        </div>
+        <div class="col-lg-6">
+          <table class="table table-bordered" style="border-color:#000 !important;">
+            <tr class="acolorpicker"><td>header_logo</td><td><%= template.header_logo %></td></tr>
+            <tr class="acolorpicker"><td>footer_logo</td><td><%= template.footer_logo %></td></tr>
+            <tr class="acolorpicker"><td>footer_top_background_gradient</td><td><span class="colorbox" style="background-color:<%= template.footer_top_background_gradient %>"></span><%= template.footer_top_background_gradient %></td></tr>
+            <tr class="acolorpicker"><td>footer_bottom_background_gradient</td><td><span class="colorbox" style="background-color:<%= template.footer_bottom_background_gradient %>"></span><%= template.footer_bottom_background_gradient %></td></tr>
+            <tr class="acolorpicker"><td>footer_header_color</td><td><span class="colorbox" style="background-color:<%= template.footer_header_color %>"></span><%= template.footer_header_color %></td></tr>
+            <tr class="acolorpicker"><td>footer_link_color</td><td><span class="colorbox" style="background-color:<%= template.footer_link_color %>"></span><%= template.footer_link_color %></td></tr>
+            <tr class="acolorpicker"><td>footer_font_color</td><td><span class="colorbox" style="background-color:<%= template.footer_font_color %>"></span><%= template.footer_font_color %></td></tr>
+            <tr class="template-active"><td>active</td><td> <%= template.active %></td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <td><%= link_to 'Show', template, class: "btn btn-default" %></td>
+          <td><%= link_to 'Edit', edit_template_path(template), class: "btn btn-default" %></td>
+          <td><%= link_to 'Destroy', template, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %></td>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <br />
+      <%= link_to 'New Template', new_template_path, class: "btn btn-default" %>
+    </div>
+  </div>
+</div>

@@ -20,8 +20,8 @@ $(function() {
       }
     }).done(function(response){
       //need to do something?
+      location.reload();
     });
-    location.reload();
   });
 
   $(".item-remove").on("click", function(e) {
@@ -40,8 +40,7 @@ $(function() {
         item_id : e.currentTarget.dataset.id
       }
     }).done(function(response){
-
+      location.reload();
     });
-    location.reload();
   });
 });

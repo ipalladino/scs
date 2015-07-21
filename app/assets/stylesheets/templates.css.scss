@@ -1,0 +1,27 @@
+// Place all the styles related to the Templates controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.minicolors-theme-default .minicolors-input {
+  height: 29px !important;
+}
+.template-active {
+  input {
+    width:120px;
+  }
+}
+
+.show-template {
+  font-size:15px;
+  table {
+    word-wrap:break-word;
+    table-layout: fixed;
+  }
+  .colorbox {
+    margin-right:5px;
+    display:inline-block;
+    width:25px;
+    height:25px;
+    border:1px solid #000;
+  }
+}

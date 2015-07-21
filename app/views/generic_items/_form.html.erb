@@ -53,6 +53,14 @@
   			    <%= f.label :button_text %><br>
   			    <%= f.text_field :button_text, class: "form-control"  %>
   			  </div>
+          <div class="field" id="generic-item-background-color">
+  			    <%= f.label :background_color %><br>
+  			    <%= f.text_field :background_color, class: "form-control"  %>
+  			  </div>
+          <div class="field" id="generic-item-color">
+  			    <%= f.label :color %><br>
+  			    <%= f.text_field :color, class: "form-control"  %>
+  			  </div>
         <% else %>
           <% if(@defaults[:title]) %>
             <div class="field" id="generic-item-title">
