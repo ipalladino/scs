@@ -1,0 +1,15 @@
+header {
+  text-transform: uppercase;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: 0 0 1px rgba(0,0,0,0.3);
+  .collapse {
+    > ul {
+      > li {
+        > a {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
