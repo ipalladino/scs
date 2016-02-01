@@ -10,6 +10,14 @@ class StaticPagesController < ApplicationController
     end
   end
 
+  def contact_us
+    @section_hero = GenericItem.new(
+      title: "CONTACT US",
+      description: "We will go above and beyond to convey emotion, and tell a beautiful story about your product.<br> Contact us and learn more about how we can help you",
+      graphic: "/assets/wallpaper2.jpg"
+    )
+  end
+
   def default
     begin
       @page = Page.where({url: "/"})[0]

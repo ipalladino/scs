@@ -1,0 +1,25 @@
+.section-thumbnail {
+	padding-top:50px;
+	padding-bottom:50px;
+	.heading {
+		h1 {
+			text-align:center;
+			margin-bottom:20px;
+		}
+		p {
+			margin-bottom:40px;
+		}
+	}
+	.thumbnail {
+		padding:0px;
+    .image {
+			background: #f7f7f7;
+      height:300px;
+			overflow: hidden;
+    }
+	}
+	img {
+		width:100%;
+		background: #f7f7f7;
+	}
+}

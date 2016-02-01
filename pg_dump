@@ -1,0 +1,638 @@
+--
+-- PostgreSQL database dump
+--
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: generic_items; Type: TABLE; Schema: public; Owner: ignacio; Tablespace: 
+--
+
+CREATE TABLE generic_items (
+    id integer NOT NULL,
+    title character varying(255),
+    description text,
+    graphic character varying(255),
+    button_link character varying(255),
+    button_text character varying(255),
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    component integer,
+    parent_item_id integer,
+    is_default boolean DEFAULT false NOT NULL,
+    priority integer DEFAULT 0,
+    background_color character varying(255) DEFAULT 'transparent'::character varying,
+    color character varying(255) DEFAULT '#000'::character varying
+);
+
+
+ALTER TABLE public.generic_items OWNER TO ignacio;
+
+--
+-- Name: generic_items_id_seq; Type: SEQUENCE; Schema: public; Owner: ignacio
+--
+
+CREATE SEQUENCE generic_items_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.generic_items_id_seq OWNER TO ignacio;
+
+--
+-- Name: generic_items_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ignacio
+--
+
+ALTER SEQUENCE generic_items_id_seq OWNED BY generic_items.id;
+
+
+--
+-- Name: menu_items; Type: TABLE; Schema: public; Owner: ignacio; Tablespace: 
+--
+
+CREATE TABLE menu_items (
+    id integer NOT NULL,
+    title character varying(255),
+    description text,
+    url character varying(255),
+    parent_item_id integer,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    priority integer
+);
+
+
+ALTER TABLE public.menu_items OWNER TO ignacio;
+
+--
+-- Name: menu_items_id_seq; Type: SEQUENCE; Schema: public; Owner: ignacio
+--
+
+CREATE SEQUENCE menu_items_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.menu_items_id_seq OWNER TO ignacio;
+
+--
+-- Name: menu_items_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ignacio
+--
+
+ALTER SEQUENCE menu_items_id_seq OWNED BY menu_items.id;
+
+
+--
+-- Name: page_item_relationships; Type: TABLE; Schema: public; Owner: ignacio; Tablespace: 
+--
+
+CREATE TABLE page_item_relationships (
+    id integer NOT NULL,
+    page_id integer,
+    generic_item_id integer,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+ALTER TABLE public.page_item_relationships OWNER TO ignacio;
+
+--
+-- Name: page_item_relationships_id_seq; Type: SEQUENCE; Schema: public; Owner: ignacio
+--
+
+CREATE SEQUENCE page_item_relationships_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.page_item_relationships_id_seq OWNER TO ignacio;
+
+--
+-- Name: page_item_relationships_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ignacio
+--
+
+ALTER SEQUENCE page_item_relationships_id_seq OWNED BY page_item_relationships.id;
+
+
+--
+-- Name: page_menu_relationships; Type: TABLE; Schema: public; Owner: ignacio; Tablespace: 
+--
+
+CREATE TABLE page_menu_relationships (
+    id integer NOT NULL,
+    page_id integer,
+    menu_item_id integer,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+ALTER TABLE public.page_menu_relationships OWNER TO ignacio;
+
+--
+-- Name: page_menu_relationships_id_seq; Type: SEQUENCE; Schema: public; Owner: ignacio
+--
+
+CREATE SEQUENCE page_menu_relationships_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.page_menu_relationships_id_seq OWNER TO ignacio;
+
+--
+-- Name: page_menu_relationships_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ignacio
+--
+
+ALTER SEQUENCE page_menu_relationships_id_seq OWNED BY page_menu_relationships.id;
+
+
+--
+-- Name: pages; Type: TABLE; Schema: public; Owner: ignacio; Tablespace: 
+--
+
+CREATE TABLE pages (
+    id integer NOT NULL,
+    title character varying(255),
+    description text,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    url character varying(255)
+);
+
+
+ALTER TABLE public.pages OWNER TO ignacio;
+
+--
+-- Name: pages_id_seq; Type: SEQUENCE; Schema: public; Owner: ignacio
+--
+
+CREATE SEQUENCE pages_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.pages_id_seq OWNER TO ignacio;
+
+--
+-- Name: pages_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ignacio
+--
+
+ALTER SEQUENCE pages_id_seq OWNED BY pages.id;
+
+
+--
+-- Name: schema_migrations; Type: TABLE; Schema: public; Owner: ignacio; Tablespace: 
+--
+
+CREATE TABLE schema_migrations (
+    version character varying(255) NOT NULL
+);
+
+
+ALTER TABLE public.schema_migrations OWNER TO ignacio;
+
+--
+-- Name: section_heros; Type: TABLE; Schema: public; Owner: ignacio; Tablespace: 
+--
+
+CREATE TABLE section_heros (
+    id integer NOT NULL,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+ALTER TABLE public.section_heros OWNER TO ignacio;
+
+--
+-- Name: section_heros_id_seq; Type: SEQUENCE; Schema: public; Owner: ignacio
+--
+
+CREATE SEQUENCE section_heros_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.section_heros_id_seq OWNER TO ignacio;
+
+--
+-- Name: section_heros_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ignacio
+--
+
+ALTER SEQUENCE section_heros_id_seq OWNED BY section_heros.id;
+
+
+--
+-- Name: templates; Type: TABLE; Schema: public; Owner: ignacio; Tablespace: 
+--
+
+CREATE TABLE templates (
+    id integer NOT NULL,
+    body_background_color character varying(255),
+    body_font_color character varying(255),
+    header_background_color character varying(255),
+    header_font_color character varying(255),
+    header_open_background_color character varying(255),
+    header_open_font_color character varying(255),
+    dropdown_menu_hover_background_color character varying(255),
+    dropdown_menu_hover_font_color character varying(255),
+    dropdown_menu_font_color character varying(255),
+    header_logo character varying(255),
+    footer_logo character varying(255),
+    footer_top_background_gradient character varying(255),
+    footer_bottom_background_gradient character varying(255),
+    footer_header_color character varying(255),
+    footer_link_color character varying(255),
+    footer_font_color character varying(255),
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    active boolean DEFAULT false NOT NULL
+);
+
+
+ALTER TABLE public.templates OWNER TO ignacio;
+
+--
+-- Name: templates_id_seq; Type: SEQUENCE; Schema: public; Owner: ignacio
+--
+
+CREATE SEQUENCE templates_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.templates_id_seq OWNER TO ignacio;
+
+--
+-- Name: templates_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ignacio
+--
+
+ALTER SEQUENCE templates_id_seq OWNED BY templates.id;
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: ignacio
+--
+
+ALTER TABLE ONLY generic_items ALTER COLUMN id SET DEFAULT nextval('generic_items_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: ignacio
+--
+
+ALTER TABLE ONLY menu_items ALTER COLUMN id SET DEFAULT nextval('menu_items_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: ignacio
+--
+
+ALTER TABLE ONLY page_item_relationships ALTER COLUMN id SET DEFAULT nextval('page_item_relationships_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: ignacio
+--
+
+ALTER TABLE ONLY page_menu_relationships ALTER COLUMN id SET DEFAULT nextval('page_menu_relationships_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: ignacio
+--
+
+ALTER TABLE ONLY pages ALTER COLUMN id SET DEFAULT nextval('pages_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: ignacio
+--
+
+ALTER TABLE ONLY section_heros ALTER COLUMN id SET DEFAULT nextval('section_heros_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: ignacio
+--
+
+ALTER TABLE ONLY templates ALTER COLUMN id SET DEFAULT nextval('templates_id_seq'::regclass);
+
+
+--
+-- Data for Name: generic_items; Type: TABLE DATA; Schema: public; Owner: ignacio
+--
+
+COPY generic_items (id, title, description, graphic, button_link, button_text, created_at, updated_at, component, parent_item_id, is_default, priority, background_color, color) FROM stdin;
+27	Hero 1	Example Item Hero	/assets/wallpaper1.jpg	none	none	2016-01-19 00:18:43.356687	2016-01-19 00:18:43.356687	1	\N	t	0	#aaaaee	#000000
+28	Hero 2	Example Item Hero	/assets/wallpaper1.jpg	#	Button	2016-01-19 00:18:43.359028	2016-01-19 00:18:43.359028	2	\N	t	0	#aaaaee	#000000
+29	Four Icons Example	Four Icons Example	/assets/wallpaper1.jpg	#	Button	2016-01-19 00:18:43.360916	2016-01-19 00:18:43.360916	3	\N	t	0	#aaaaee	#000000
+30	Title	Some Description	glyphicon glyphicon-asterisk	#	Text	2016-01-19 00:18:43.362676	2016-01-19 00:18:43.362676	\N	29	f	0	transparent	#000
+31	Title	Some Description	glyphicon glyphicon-asterisk	#	Text	2016-01-19 00:18:43.364337	2016-01-19 00:18:43.364337	\N	29	f	0	transparent	#000
+32	Title	Some Description	glyphicon glyphicon-asterisk	#	Text	2016-01-19 00:18:43.365805	2016-01-19 00:18:43.365805	\N	29	f	0	transparent	#000
+33	Title	Some Description	glyphicon glyphicon-asterisk	#	Text	2016-01-19 00:18:43.368141	2016-01-19 00:18:43.368141	\N	29	f	0	transparent	#000
+34	Default Image Left	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam	/assets/carousel-intro-5.png	#	Button	2016-01-19 00:18:43.370386	2016-01-19 00:18:43.370386	4	\N	t	0	#000	#fff
+35	Default Image Bottom	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam	/assets/carousel-intro-1.png	#	Button	2016-01-19 00:18:43.372822	2016-01-19 00:18:43.372822	5	\N	t	0	#000	#fff
+36	Three Cards	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam	/assets/carousel-intro-1.png	#	Button	2016-01-19 00:18:43.375388	2016-01-19 00:18:43.375388	6	\N	t	0	#000	#fff
+37	Lorem ipsum	Lorem ipsum dolor sit amet, consectetur adipisicin...	/assets/client-stitcher.png	#	Button	2016-01-19 00:18:43.377996	2016-01-19 00:18:43.377996	\N	36	f	0	transparent	#000
+38	Lorem ipsum	Lorem ipsum dolor sit amet, consectetur adipisicin...	/assets/client-stitcher.png	#	Button	2016-01-19 00:18:43.380083	2016-01-19 00:18:43.380083	\N	36	f	0	transparent	#000
+39	Lorem ipsum	Lorem ipsum dolor sit amet, consectetur adipisicin...	/assets/client-stitcher.png	#	Button	2016-01-19 00:18:43.382014	2016-01-19 00:18:43.382014	\N	36	f	0	transparent	#000
+40	Carousel	\N	\N	\N	\N	2016-01-19 00:18:43.384526	2016-01-19 00:18:43.384526	7	\N	t	0	#000	#fff
+41	Lorem ipsum	Lorem ipsum dolor sit amet, consectetur adipisicin...	/assets/carousel-intro-1.png	#	Button	2016-01-19 00:18:43.386333	2016-01-19 00:18:43.386333	\N	40	f	0	transparent	#000
+42	Lorem ipsum	Lorem ipsum dolor sit amet, consectetur adipisicin...	/assets/carousel-intro-2.png	#	Button	2016-01-19 00:18:43.388428	2016-01-19 00:18:43.388428	\N	40	f	0	transparent	#000
+43	Lorem ipsum	Lorem ipsum dolor sit amet, consectetur adipisicin...	/assets/carousel-intro-3.png	#	Button	2016-01-19 00:18:43.390438	2016-01-19 00:18:43.390438	\N	40	f	0	transparent	#000
+44	Big Cover	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam	/assets/wallpaper_ourvision.jpg	#	Button	2016-01-19 00:18:43.392374	2016-01-19 00:18:43.392374	8	\N	t	0	#000	#fff
+45	Four Icons Inline	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam	\N	#	Button	2016-01-19 00:18:43.394412	2016-01-19 00:18:43.394412	9	\N	t	0	#000	#fff
+46	Lorem ipsum	Lorem ipsum dolor sit amet, consectetur adipisicin...	glyphicon glyphicon-asterisk	#	Button	2016-01-19 00:18:43.396576	2016-01-19 00:18:43.396576	\N	45	f	0	transparent	#000
+47	Lorem ipsum	Lorem ipsum dolor sit amet, consectetur adipisicin...	glyphicon glyphicon-asterisk	#	Button	2016-01-19 00:18:43.398268	2016-01-19 00:18:43.398268	\N	45	f	0	transparent	#000
+48	Lorem ipsum	Lorem ipsum dolor sit amet, consectetur adipisicin...	glyphicon glyphicon-asterisk	#	Button	2016-01-19 00:18:43.399826	2016-01-19 00:18:43.399826	\N	45	f	0	transparent	#000
+49	Lorem ipsum	Lorem ipsum dolor sit amet, consectetur adipisicin...	glyphicon glyphicon-asterisk	#	Button	2016-01-19 00:18:43.401706	2016-01-19 00:18:43.401706	\N	45	f	0	transparent	#000
+50	Simple Custom Solutions	Your go to provider of web services	https://s3-us-west-2.amazonaws.com/simple-custom-solutions/heros/homepage-hero.jpg	none	none	2016-01-19 00:49:38.053148	2016-01-19 00:50:28.671502	1	\N	f	0	#aaaaee	#d9d9d9
+52	Design	Don't worry about design anymore. We've got you covered. Our team of creative designers is ready to work with you in order to create comprehensive designs that will perfectly convene the meaning of your product or services.	https://s3-us-west-2.amazonaws.com/simple-custom-solutions/heros/homepage-design.png	#	Button	2016-01-19 00:51:52.505918	2016-01-19 01:03:31.96363	\N	51	f	0	transparent	#000
+56		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam	https://s3-us-west-2.amazonaws.com/simple-custom-solutions/heros/homepage-workbench.jpg	#	Button	2016-01-19 03:03:01.493644	2016-01-23 05:42:31.394381	8	\N	f	2	#000000	#ffffff
+53	Web Creation / Web Development	Our team of engineers thrives keeping itself up to date with the best practices of web development, and using the cutting edge of technology. Responsive development, performance, visibility and SEO(Search Engine Optimization) will make sure you are able to reach all your potential clients, regardless of their platform.	https://s3-us-west-2.amazonaws.com/simple-custom-solutions/heros/homepage-responsive.jpg	#	Learn More	2016-01-19 00:51:52.507309	2016-01-19 01:14:23.794077	\N	51	f	1	transparent	#000
+55	About Us	Simple Custom Solutions is a Bay Area Web Solutions company dedicated to providing all around web services for small and big Bay Area companies and professionals. We specialize in providing comprehensive services that allow our clients to have a strong presence online without any of the hassle.	https://s3-us-west-2.amazonaws.com/simple-custom-solutions/heros/homepage-about.jpg	#	Learn More	2016-01-19 02:22:02.436551	2016-01-23 05:42:16.567272	5	\N	f	3	#ffffff	#3d3d3d
+54	Analytics - Be driven by Big Data and succeed	Our team will provide you with all the tools to measure the level of success of your web communications. Utilizing analytics and "Big Data", will allow our customers to visualize their discourse and tailor it to convert "interested individuals" into actual customers.	https://s3-us-west-2.amazonaws.com/simple-custom-solutions/heros/homepage-data.jpg	#	Learn More	2016-01-19 00:51:52.508531	2016-01-19 01:27:40.204894	\N	51	f	3	transparent	#000
+60	Website Design	Lorem ipsum dolor sit amet, consectetur adipisicin...	https://s3-us-west-2.amazonaws.com/simple-custom-solutions/services/services-web-design.png			2016-01-21 06:58:40.465601	2016-01-21 07:04:37.670493	\N	59	f	0	transparent	#000
+66	Content Management Systems	Lorem ipsum dolor sit amet, consectetur adipisicin...	https://s3-us-west-2.amazonaws.com/simple-custom-solutions/services/services-cms.png	#		2016-01-21 06:58:42.91713	2016-01-21 07:21:23.072579	\N	63	f	1	transparent	#000
+62	Mobile Integration - Responsive Design	We utilize cutting edge frameworks in order to bring your website to live on every screen size.	https://s3-us-west-2.amazonaws.com/simple-custom-solutions/services/services-responsive.png	#		2016-01-21 06:58:40.468812	2016-01-21 07:09:32.408259	\N	59	f	1	transparent	#000
+64	User Interface / User Experience	Lorem ipsum dolor sit amet, consectetur adipisicin...	https://s3-us-west-2.amazonaws.com/simple-custom-solutions/services/services-ui_ux.png	#		2016-01-21 06:58:42.913955	2016-01-21 07:18:07.317117	\N	63	f	0	transparent	#000
+67		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam	/assets/carousel-intro-1.png	#	Button	2016-01-21 06:58:44.809836	2016-01-21 07:28:56.72619	6	\N	f	3	#e0ffe5	#2d2d2d
+68	SEO (Search Engine Optimization)	Lorem ipsum dolor sit amet, consectetur adipisicin...	https://s3-us-west-2.amazonaws.com/simple-custom-solutions/services/services-seo.png			2016-01-21 06:58:44.811021	2016-01-23 01:35:49.976562	\N	67	f	0	transparent	#000
+59	Our Services	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam	/assets/carousel-intro-1.png	#	Button	2016-01-21 06:58:40.463995	2016-01-21 07:28:11.787785	6	\N	f	1	#fffee0	#242424
+51	Carousel					2016-01-19 00:51:52.504523	2016-01-23 05:42:31.18842	7	\N	f	1	#ffffff	#ffffff
+58	SERVICES	Our Creative team and Engineers are ready to provide all the services you need to be completely integrated into the 21st century.	https://s3-us-west-2.amazonaws.com/simple-custom-solutions/heros/homepage-webdev.jpg	none	none	2016-01-21 06:58:37.230431	2016-01-21 07:01:29.400653	1	\N	f	0	#000000	#ffffff
+61	Support All Platforms	Our Quality Assurance team will do extensive testing, on all the available platforms such as Android, Windows, OSx, iOS and UNIX systems in order to weed out any possible 	https://s3-us-west-2.amazonaws.com/simple-custom-solutions/services/services-all-platforms.png	#		2016-01-21 06:58:40.467338	2016-01-21 07:14:33.701606	\N	59	f	0	transparent	#000
+65	Social Media Integration	Social media and your website should work seamlessly together to promote your online brand. We’ve talked about how to boost your website traffic with social media, so in this post we’ll be talking about social media integration on your website to help your social media presence be more visible.	https://s3-us-west-2.amazonaws.com/simple-custom-solutions/services/services-social.jpg	#		2016-01-21 06:58:42.915549	2016-01-21 07:27:27.518528	\N	63	f	3	transparent	#000
+63		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam	/assets/carousel-intro-1.png	#	Button	2016-01-21 06:58:42.912338	2016-01-21 07:28:11.990701	6	\N	f	2	#e0f5ff	#242424
+69	Web Marketing Strategies	Lorem ipsum dolor sit amet, consectetur adipisicin...	https://s3-us-west-2.amazonaws.com/simple-custom-solutions/services/services-web-marketing.png			2016-01-21 06:58:44.812069	2016-01-23 01:36:35.447611	\N	67	f	1	transparent	#000
+70	Website Upkeep and Maintenance	Lorem ipsum dolor sit amet, consectetur adipisicin...	https://s3-us-west-2.amazonaws.com/simple-custom-solutions/services/services-upkeep.png			2016-01-21 06:58:45.013714	2016-01-23 01:37:59.306713	\N	67	f	2	transparent	#000
+57	Engage with our Experts	Our Experts will analyze your business, competitors and possible customers and then help you plan an appropriate strategy that is within your budget. Our strategy will be aimed to drive traffic and convert visitors into customers while keeping costs at a minimum. \r\nWe will also give you several options that will allow you to decide how to deal with maintenance and updates, this is a crucial part of Web Marketing that goes often under-looked, if you don't stay current you will be left behind. 	https://s3-us-west-2.amazonaws.com/simple-custom-solutions/heros/expert-placeholder.jpg	#	Button	2016-01-19 03:20:17.757717	2016-01-23 05:42:16.574038	4	\N	f	4	#ffffff	#000000
+\.
+
+
+--
+-- Name: generic_items_id_seq; Type: SEQUENCE SET; Schema: public; Owner: ignacio
+--
+
+SELECT pg_catalog.setval('generic_items_id_seq', 70, true);
+
+
+--
+-- Data for Name: menu_items; Type: TABLE DATA; Schema: public; Owner: ignacio
+--
+
+COPY menu_items (id, title, description, url, parent_item_id, created_at, updated_at, priority) FROM stdin;
+1	Contact Us	Contact us and tell us about your business, we will be able to help you. And we promise to not subscrive you to any unwanted newsletter.	/contact_us	\N	2016-01-21 05:46:12.370761	2016-01-21 05:46:12.370761	4
+2	Services	Our Creative team and Engineers are ready to provide all the services you need to be completely integrated into the 21st century.	/services	\N	2016-01-21 07:30:12.449695	2016-01-21 07:30:12.449695	1
+\.
+
+
+--
+-- Name: menu_items_id_seq; Type: SEQUENCE SET; Schema: public; Owner: ignacio
+--
+
+SELECT pg_catalog.setval('menu_items_id_seq', 2, true);
+
+
+--
+-- Data for Name: page_item_relationships; Type: TABLE DATA; Schema: public; Owner: ignacio
+--
+
+COPY page_item_relationships (id, page_id, generic_item_id, created_at, updated_at) FROM stdin;
+1	1	8	2016-01-18 09:02:36.560924	2016-01-18 09:02:36.560924
+2	1	9	2016-01-18 09:02:39.393191	2016-01-18 09:02:39.393191
+3	1	14	2016-01-18 09:03:12.918081	2016-01-18 09:03:12.918081
+4	1	23	2016-01-18 23:02:01.525444	2016-01-18 23:02:01.525444
+5	2	50	2016-01-19 00:49:38.266054	2016-01-19 00:49:38.266054
+6	2	51	2016-01-19 00:51:52.713374	2016-01-19 00:51:52.713374
+7	2	55	2016-01-19 02:22:02.644465	2016-01-19 02:22:02.644465
+8	2	56	2016-01-19 03:03:01.496946	2016-01-19 03:03:01.496946
+9	2	57	2016-01-19 03:20:17.962222	2016-01-19 03:20:17.962222
+10	3	58	2016-01-21 06:58:37.446216	2016-01-21 06:58:37.446216
+11	3	59	2016-01-21 06:58:40.673249	2016-01-21 06:58:40.673249
+12	3	63	2016-01-21 06:58:43.120473	2016-01-21 06:58:43.120473
+13	3	67	2016-01-21 06:58:45.019116	2016-01-21 06:58:45.019116
+\.
+
+
+--
+-- Name: page_item_relationships_id_seq; Type: SEQUENCE SET; Schema: public; Owner: ignacio
+--
+
+SELECT pg_catalog.setval('page_item_relationships_id_seq', 13, true);
+
+
+--
+-- Data for Name: page_menu_relationships; Type: TABLE DATA; Schema: public; Owner: ignacio
+--
+
+COPY page_menu_relationships (id, page_id, menu_item_id, created_at, updated_at) FROM stdin;
+\.
+
+
+--
+-- Name: page_menu_relationships_id_seq; Type: SEQUENCE SET; Schema: public; Owner: ignacio
+--
+
+SELECT pg_catalog.setval('page_menu_relationships_id_seq', 1, false);
+
+
+--
+-- Data for Name: pages; Type: TABLE DATA; Schema: public; Owner: ignacio
+--
+
+COPY pages (id, title, description, created_at, updated_at, url) FROM stdin;
+2	Home	Simple Custom Solutions is your go to Web Services provider	2016-01-19 00:20:07.22659	2016-01-19 00:20:07.22659	/
+3	Services	All the Services provided by Simple Custom Solutions, such as Website Design, Responsive Design, Support for All Platforms, User Interface and User Experience, Content Management Systems, Social Integration, SEO (Search Engine Optimization), Web Marketing Strategies, Website Maintenance, Website Upkeep.	2016-01-21 06:58:18.233159	2016-01-21 06:58:18.233159	/services
+\.
+
+
+--
+-- Name: pages_id_seq; Type: SEQUENCE SET; Schema: public; Owner: ignacio
+--
+
+SELECT pg_catalog.setval('pages_id_seq', 3, true);
+
+
+--
+-- Data for Name: schema_migrations; Type: TABLE DATA; Schema: public; Owner: ignacio
+--
+
+COPY schema_migrations (version) FROM stdin;
+20141210031513
+20141214010636
+20141214011745
+20141214032645
+20141215042542
+20141215044536
+20141215075537
+20141215080331
+20141216075203
+20141216092733
+20150720060230
+20150720064851
+20150721015454
+20150721032504
+20150721032802
+20150721040119
+\.
+
+
+--
+-- Data for Name: section_heros; Type: TABLE DATA; Schema: public; Owner: ignacio
+--
+
+COPY section_heros (id, created_at, updated_at) FROM stdin;
+\.
+
+
+--
+-- Name: section_heros_id_seq; Type: SEQUENCE SET; Schema: public; Owner: ignacio
+--
+
+SELECT pg_catalog.setval('section_heros_id_seq', 1, false);
+
+
+--
+-- Data for Name: templates; Type: TABLE DATA; Schema: public; Owner: ignacio
+--
+
+COPY templates (id, body_background_color, body_font_color, header_background_color, header_font_color, header_open_background_color, header_open_font_color, dropdown_menu_hover_background_color, dropdown_menu_hover_font_color, dropdown_menu_font_color, header_logo, footer_logo, footer_top_background_gradient, footer_bottom_background_gradient, footer_header_color, footer_link_color, footer_font_color, created_at, updated_at, active) FROM stdin;
+1	#ffffff	#000000	#000000	#ffffff	#ffffff	#000000		#000000	#000000	/assets/logo.png	/assets/logo.png	#000000	#000000	#ffffff	#ffffff	#ffffff	2016-01-18 08:32:43.213486	2016-01-19 02:08:52.480391	f
+3	#ffffff	#2d2d2d	#031634	#b8d0de	#031634	#dddfe0	#036564	#f7f7f7	#000000	/assets/logo.png	/assets/logo.png	#031634	#000000	#b8d0de	#9fc2d6	#f7f7f7	2016-01-19 02:08:41.180483	2016-01-19 02:19:46.471391	t
+\.
+
+
+--
+-- Name: templates_id_seq; Type: SEQUENCE SET; Schema: public; Owner: ignacio
+--
+
+SELECT pg_catalog.setval('templates_id_seq', 3, true);
+
+
+--
+-- Name: generic_items_pkey; Type: CONSTRAINT; Schema: public; Owner: ignacio; Tablespace: 
+--
+
+ALTER TABLE ONLY generic_items
+    ADD CONSTRAINT generic_items_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: menu_items_pkey; Type: CONSTRAINT; Schema: public; Owner: ignacio; Tablespace: 
+--
+
+ALTER TABLE ONLY menu_items
+    ADD CONSTRAINT menu_items_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: page_item_relationships_pkey; Type: CONSTRAINT; Schema: public; Owner: ignacio; Tablespace: 
+--
+
+ALTER TABLE ONLY page_item_relationships
+    ADD CONSTRAINT page_item_relationships_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: page_menu_relationships_pkey; Type: CONSTRAINT; Schema: public; Owner: ignacio; Tablespace: 
+--
+
+ALTER TABLE ONLY page_menu_relationships
+    ADD CONSTRAINT page_menu_relationships_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: pages_pkey; Type: CONSTRAINT; Schema: public; Owner: ignacio; Tablespace: 
+--
+
+ALTER TABLE ONLY pages
+    ADD CONSTRAINT pages_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: section_heros_pkey; Type: CONSTRAINT; Schema: public; Owner: ignacio; Tablespace: 
+--
+
+ALTER TABLE ONLY section_heros
+    ADD CONSTRAINT section_heros_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: templates_pkey; Type: CONSTRAINT; Schema: public; Owner: ignacio; Tablespace: 
+--
+
+ALTER TABLE ONLY templates
+    ADD CONSTRAINT templates_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: ignacio; Tablespace: 
+--
+
+CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (version);
+
+
+--
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+--
+-- PostgreSQL database dump complete
+--
+
