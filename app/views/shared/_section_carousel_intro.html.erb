@@ -3,7 +3,7 @@
 		<!-- Indicators -->
 		<ol class="carousel-indicators">
 			<% i = 0 %>
-			<% obj.child_items.each do |item| %>
+			<% obj.child_items.order("priority ASC").each do |item| %>
 				<% if(i == 0) %>
 					<li data-target="#carousel-intro" data-slide-to="<%= i %>" class="active"></li>
 				<% else %>
@@ -15,7 +15,7 @@
 		<!-- Wrapper for slides -->
 		<div class="carousel-inner" role="listbox">
 			<% i = 0 %>
-			<% obj.child_items.each do |item| %>
+			<% obj.child_items.order("priority ASC").each do |item| %>
 			<% if(i == 0) %>
 				<div class="item active">
 			<% else %>
@@ -26,7 +26,9 @@
 					    <div class="col-lg-6" >
 					      <h2><%= item.title %></h2>
 								<p><%= item.description %></p>
-								<a href="<%= item.button_link %>" class="btn btn-default" role="button"><%= item.button_text %></a>
+								<% if(item.button_link != "#" && !item.button_link.empty?) %>
+									<a href="<%= item.button_link %>" class="btn btn-default" role="button"><%= item.button_text %></a>
+								<% end %>
 					    </div>
 							<div class="col-lg-6 icon-wrapper">
 								<img src="<%= item.graphic %>" />
