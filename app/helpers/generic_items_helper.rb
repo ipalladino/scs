@@ -18,6 +18,8 @@ module GenericItemsHelper
       return "Big Cover"
     elsif(id == 9)
       return "Four Icons Inline"
+    elsif(id == 10)
+      return "Full Width Fixed Attachment"
     else
       return "Unknown"
     end
@@ -41,6 +43,8 @@ module GenericItemsHelper
     elsif(id == 8)
       return "/assets/sections/section-big_cover.png"
     elsif(id == 9)
+      return "/assets/sections/section-four_icons_inline.png"
+    elsif(id == 10)
       return "/assets/sections/section-four_icons_inline.png"
     else
       return "Unknown"

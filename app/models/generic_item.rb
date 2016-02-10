@@ -148,6 +148,15 @@ class GenericItem < ActiveRecord::Base
           button_text: true,
           subitems: 4
         }
+      elsif(component == "10") #full width fixed attachment
+        available_fields = {
+          title: true,
+          description: true,
+          graphic: true,
+          button_link: true,
+          button_text: true,
+          subitems: -1
+        }
       end
     end
 

@@ -30,7 +30,9 @@ Rails.application.routes.draw do
   root 'static_pages#default'
 
   get '/contact_us' => 'static_pages#contact_us'
-  
+  get '/bookmarkers' => 'static_pages#bookmarkers' #design possibility
+  get '/horizontals' => 'static_pages#horizontals' #design possibility
+
   get '/:section/:name' => 'static_pages#home'
   get '/:section' => 'static_pages#home'
   get '/company/ourvision' => 'static_pages#ourvision'

@@ -167,3 +167,17 @@ GenericItem.create(parent_item_id: v.id, title: "Lorem ipsum", description: "Lor
 GenericItem.create(parent_item_id: v.id, title: "Lorem ipsum", description: "Lorem ipsum dolor sit amet, consectetur adipisicin...", graphic: "glyphicon glyphicon-asterisk", button_link: "#", button_text: "Button", is_default: false, priority: 0, background_color: "transparent", color: "#000")
 GenericItem.create(parent_item_id: v.id, title: "Lorem ipsum", description: "Lorem ipsum dolor sit amet, consectetur adipisicin...", graphic: "glyphicon glyphicon-asterisk", button_link: "#", button_text: "Button", is_default: false, priority: 0, background_color: "transparent", color: "#000")
 GenericItem.create(parent_item_id: v.id, title: "Lorem ipsum", description: "Lorem ipsum dolor sit amet, consectetur adipisicin...", graphic: "glyphicon glyphicon-asterisk", button_link: "#", button_text: "Button", is_default: false, priority: 0, background_color: "transparent", color: "#000")
+
+#create attachment fixed
+GenericItem.create(
+  title: "Full Width Fixed Attachment",
+  description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+  graphic: "/assets/wallpaper_ourvision.jpg",
+  button_link: "#",
+  button_text: "Button",
+  component: 10,
+  is_default: true,
+  priority: 0,
+  background_color: "#000",
+  color: "#fff"
+)

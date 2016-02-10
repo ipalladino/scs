@@ -1,1 +1,22 @@
 rake db:seed
+
+
+*Adding component*
+
+Create GenericItem on db with is_default true
+
+Add to seeds.rb
+
+Create HTML Template on Shared
+
+Add to Generic Items Helper
+
+Add to Generic Items Model
+  Add to has_sub_items if it has sub-items
+
+Add to views/pages/preview.html.erb -> name of component erb template file
+
+Add to views/shared/_dropdown_components.html.erb
+
+
+===================================

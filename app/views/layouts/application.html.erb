@@ -62,10 +62,12 @@
 
 </head>
 <body>
-<%= render "shared/header" %>
+  <div id="skrollr-body">
+    <%= render "shared/header" %>
 
-<%= yield %>
+    <%= yield %>
 
-<%= render "shared/footer" %>
+    <%= render "shared/footer" %>
+  </div>
 </body>
 </html>

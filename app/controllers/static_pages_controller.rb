@@ -18,6 +18,19 @@ class StaticPagesController < ApplicationController
     )
   end
 
+  #design possibility
+  def bookmarkers
+  end
+
+  #design possibility
+  def horizontals
+    @section_hero = GenericItem.new(
+      title: "SERVICES",
+      description: "We will go above and beyond to convey emotion, and tell a beautiful story about your product.<br> Contact us and learn more about how we can help you",
+      graphic: "/assets/wallpaper2.jpg"
+    )
+  end
+
   def default
     begin
       @page = Page.where({url: "/"})[0]

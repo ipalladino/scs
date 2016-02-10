@@ -52,6 +52,9 @@
               <% @page.generic_items.order("priority ASC").each do |item| %>
                 <li data-id="<%= item.id %>">
                   <img src="<%= translate_component_image(item.component) %>" />
+                  <div class="title">
+                    <%= item.title %>
+                  </div>
                   <div class="options">
                     <% if(item.has_sub_items) %>
                       <a href="/generic_items/<%= item.id %>" class="item-edit"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>

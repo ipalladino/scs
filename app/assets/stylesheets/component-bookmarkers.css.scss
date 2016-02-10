@@ -1,0 +1,47 @@
+.bookmarkers {
+  padding-top:160px;
+  padding-bottom:60px;
+  .row {
+    white-space: nowrap;
+    height:500px;
+    text-align: center;
+    vertical-align: top;
+  }
+  .bookmarker {
+    padding: 20px;
+    position: relative;
+    vertical-align: middle;
+    display: inline-block !important;
+    background-color: white;
+    border:1px solid;
+    overflow: hidden;
+    bottom:0px;
+    height:300px;
+    width:98px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    -webkit-transition: width .3s, height .3s, bottom .3s; /* Safari */
+    transition: width .3s, height .3s, bottom .3s;
+    p {
+      white-space: normal;
+      width: 300px;
+    }
+    &:hover {
+      width:360px !important;
+      height:460px !important;
+    }
+    img {
+      width:280px;
+    }
+  }
+  &:nth-child(odd) {
+    .bookmarker {
+      //background-color: red;
+    }
+  }
+  &:nth-child(even) {
+    .bookmarker {
+      //background-color: green;
+    }
+  }
+}
