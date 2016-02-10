@@ -22,8 +22,10 @@ Add to views/shared/_dropdown_components.html.erb
 ===================================
 
 
-Export db locally:
+==Export db locally:
 pg_dump --no-acl --no-owner --format=c database_name > pg_dump.dump
+ex: pg_dump --no-acl --no-owner --format=c scs > pg_dump.dump
 
-Import DB on Heroku
+==Import DB on Heroku
 heroku pg:backups restore 'actual_database_url' DATABASE_URL
+ex: heroku pg:backups restore 'https://s3-us-west-2.amazonaws.com/simple-custom-solutions/db/pg_dump.dump' DATABASE_URL
