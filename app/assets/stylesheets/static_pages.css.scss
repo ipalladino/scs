@@ -46,6 +46,7 @@ header {
 	position:absolute;
 	height:100%;
 	width:100%;
+	background-position: center center;
 }
 
 .section-hero {
@@ -54,6 +55,10 @@ header {
 	height:600px;
 	div {
 		height:100%;
+	}
+
+	.table-cell-wrapper {
+		position: relative;
 	}
 
 	color:#ffffff;
@@ -66,7 +71,7 @@ header {
 		position:relative;
 		display:block;
 		font-size:70px;
-		font-family:"Helvetica Neue", sans-serif;
+		font-family:"Helvetica Neue 45 Light", sans-serif;
 		font-weight:lighter;
 	}
 	p {

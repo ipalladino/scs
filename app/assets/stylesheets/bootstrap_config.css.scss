@@ -80,5 +80,13 @@ $navbar-default-link-hover-color: #EAEAEA;
 }
 
 body {
-	font-family:"Helvetica Neue", sans-serif;
+	font-family:"proxima_nova", sans-serif;
+}
+
+.btn-scs {
+	background-color: #73C2FF;
+	border-color:#107FC9;
+	&:hover {
+		background-color: #b5ddfc;
+	}
 }

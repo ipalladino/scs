@@ -1,0 +1,28 @@
+.portfolio {
+  padding-top:60px;
+  padding-bottom: 60px;
+  img {
+    max-width: 100%;
+    position: relative;
+  }
+  h2 {
+    font-family: "Helvetica Neue 55 Roman";
+    font-weight: bold;
+    position: relative;
+    margin-bottom:10px;
+  }
+  h3 {
+    color:#107FC9;
+    margin-top:0px;
+    font-family: "Helvetica Neue 45 Light";
+    font-size: 15px;
+    position: relative;
+  }
+  p {
+    position: relative;
+  }
+  &.stitcher {
+    background-color: #1D1D1D;
+    color:#fff;
+  }
+}

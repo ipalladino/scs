@@ -20,6 +20,16 @@
 	<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
 	<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
 	<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+
+  <% if(@meta_description) %>
+    <meta name="description" content="<%= @meta_description %>">
+  <% else %>
+    <meta name="description" content="Simple Custom Solutions is a Web Solutions company dedicated to providing all around web services for big and small companies, individuals, and entrepreneurs alike">
+  <% end %>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
 	<meta name="msapplication-TileColor" content="#da532c">
 	<meta name="msapplication-TileImage" content="/mstile-144x144.png">
 
@@ -70,4 +80,16 @@
     <%= render "shared/footer" %>
   </div>
 </body>
+<script type="text/javascript">
+    (function() {
+        var path = '//easy.myfonts.net/v2/js?sid=10257(font-family=Helvetica+Neue+35+Thin)&sid=10259(font-family=Helvetica+Neue+55+Roman)&sid=10261(font-family=Helvetica+Neue+75+Bold)&sid=10263(font-family=Helvetica+Neue+45+Light)&key=QhkBkbFnJY',
+            protocol = ('https:' == document.location.protocol ? 'https:' : 'http:'),
+            trial = document.createElement('script');
+        trial.type = 'text/javascript';
+        trial.async = true;
+        trial.src = protocol + path;
+        var head = document.getElementsByTagName("head")[0];
+        head.appendChild(trial);
+    })();
+</script>
 </html>

@@ -1,12 +1,12 @@
 <section class="section-hero">
-	<div class="background-image skrollable skrollable-between" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= obj.graphic %>);" data-0-top="background-position: 0px -200px;" data--500-top="background-position: 0px -800px;">
+	<div class="background-image skrollable skrollable-between" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(<%= obj.graphic %>);background-position: center center;">
 	</div>
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="outer-wrapper">
 					<div class="table-wrapper">
-						<div class="table-cell-wrapper">
+						<div class="table-cell-wrapper" data-0-top="top:0px;opacity:1;" data--300-top="top:300px;opacity:0;">
 							<h1><%= obj.title %></h1>
 							<hr/>
 							<p><%= raw obj.description %></p>

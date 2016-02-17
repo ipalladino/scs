@@ -10,6 +10,14 @@ class StaticPagesController < ApplicationController
     end
   end
 
+  def portfolio
+    @section_hero = GenericItem.new(
+      title: "PORTFOLIO",
+      description: "Get to know some of our customers and our work.",
+      graphic: "https://s3-us-west-2.amazonaws.com/simple-custom-solutions/heros/hero-portfolio.jpeg"
+    )
+  end
+
   def contact_us
     @section_hero = GenericItem.new(
       title: "CONTACT US",
