@@ -5,7 +5,11 @@ module ApplicationHelper
   end
 
   def is_admin
-    return true
+    if(current_user)
+      return true
+    else
+      return false
+    end
   end
 
   def get_active_template

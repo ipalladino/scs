@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  # these routes are for showing users a login form, logging them in, and logging them out.
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
+  get '/signup' => 'users#new'
+  post '/users' => 'users#create'
+
   resources :templates
 
   resources :menu_items do
@@ -37,7 +45,6 @@ Rails.application.routes.draw do
   get '/:section/:name' => 'static_pages#home'
   get '/:section' => 'static_pages#home'
   get '/company/ourvision' => 'static_pages#ourvision'
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
