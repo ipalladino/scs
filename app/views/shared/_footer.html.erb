@@ -9,48 +9,42 @@
       <div class="col-lg-8 col-sm-8">
 				<div class="container-fluid">
 				  <div class="row">
-						<div class="col-lg-4 col-sm-4" >
+						<div class="col-lg-5 col-sm-5" >
 				      <ul class="list-unstyled">
-								<li><b>OPTIMIZATION</b></li>
-								<li><a href="#">ANALYTICS</a></li>
-								<li><a href="#">SEARCH ENGINE OPTIMIZATION</a></li>
+								<li><b>SIMPLE CUSTOM SOLUTIONS</b></li>
+								<li><a href="/about_us">ABOUT US</a></li>
+								<li><a href="/services">SERVICES</a></li>
+                <li><a href="/services">PORTFOLIO</a></li>
+                <li><a href="/contact_us">CONTACT US</a></li>
+                <li>"We are firm believers in that progress can only be made through innovation, especially in this industry."</li>
 		          </ul>
-							<ul class="list-unstyled">
+              <!--ul class="list-unstyled">
 								<li><b>ENGINEERING</b></li>
 								<li><a href="#">UI & UX</a></li>
 		            <li><a href="#">MOBILE</a></li>
 		            <li><a href="#">BIG DATA & HIGH PERFORMANCE</a></li>
 								<li><a href="#">WEB APPLICATIONS</a></li>
 								<li><a href="#">WEB MARKETING</a></li>
-							</ul>
+							</ul -->
 				    </div>
 						<div class="col-lg-4 col-sm-4" >
 				      <ul class="list-unstyled">
 								<li><b>COMPANY</b></li>
-		            <li><a href="/company/ourvision">OUR VISION</a></li>
-		            <li><a href="#">OUR HISTORY</a></li>
-		            <li><a href="#">INNOVATION</a></li>
-								<li><a href="#">CLIENTS</a></li>
+		            <li>"We empower our clients and ourselves through continuously staying up to date with the ever-changing market"</li>
 		          </ul>
 				    </div>
-						<div class="col-lg-4 col-sm-4" >
-							<h4>Our Offices</h4>
-							<div>
-								<span class="address"><b>San Francisco Office</b></br>
-								164 Townsend St. SF, CA 94106</br>
-								Phone: 312-622-7842</br></span>
-							</div>
-							<div>
-								<span class="address"><b>Buenos Aires Office</b></br>
-								Av. del Libertador 16912, Arg 1642</br>
-								Phone: 5411-743-8801</br></span>
-							</div>
-							<div>
-								<span class="address"><b>Resistencia Office</b></br>
-								Corrientes 1942, Chaco, Arg 1642</br>
-								Phone: 5411-743-8801</br></span>
-							</div>
-						</div>
+            <div class="col-lg-3 col-sm-3" >
+              <ul class="list-unstyled">
+								<li><b>OUR OFFICES</b></li>
+		            <li>
+                  <div>
+    								<span class="address"><b>Bay Area Office</b></br>
+                    Oakland, CA <br>
+    								Phone: 312-622-7842</br></span>
+    							</div>
+                </li>
+		          </ul>
+				    </div>
 				  </div>
 				</div>
 
@@ -77,13 +71,15 @@
         <div id="logo-footer">
           <div>
             <% template = get_active_template %>
-            <img src="<%= template.footer_logo %>" alt="" /></br></br>
-            All rights reserved<br />
-            Built by Simple Custom Solutions
+            <img src="<%= template.footer_logo %>" alt="" /
           </div>
         </div>
       </div>
     </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 copyright">
+        Copyright © 2016 Simple Custom Solutions Corp. All rights reserved
+      </div>
+    </div>
   </div>
-
 </footer>

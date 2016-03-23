@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   before_action :set_page, only: [:show, :edit, :update, :destroy]
-  before_filter :authorizem, only: [:new, :create, :update, :destroy, :add_item, :remove_item]
+  before_filter :authorize, only: [:new, :create, :update, :destroy, :add_item, :remove_item]
 
   # GET /pages
   # GET /pages.json
