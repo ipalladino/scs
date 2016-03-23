@@ -29,3 +29,7 @@ ex: pg_dump --no-acl --no-owner --format=c scs > pg_dump.dump
 ==Import DB on Heroku
 heroku pg:backups restore 'actual_database_url' DATABASE_URL
 ex: heroku pg:backups restore 'https://s3-us-west-2.amazonaws.com/simple-custom-solutions/db/pg_dump.dump' DATABASE_URL
+
+
+// optmimizing images
+jpegoptim --max=60 AdobeStock_19799556.jpeg --dest=compressed
