@@ -21,7 +21,7 @@ class StaticPagesController < ApplicationController
   def contact_us
     @section_hero = GenericItem.new(
       title: "CONTACT US",
-      description: "We will go above and beyond to convey emotion, and tell a beautiful story about your product.<br> Contact us and learn more about how we can help you",
+      description: "Before anything, let’s start talking.",
       graphic: "https://s3-us-west-2.amazonaws.com/simple-custom-solutions/heros/hero-contact-us.jpeg"
     )
   end
