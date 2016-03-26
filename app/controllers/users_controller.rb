@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_filter :authorize, only: [:create]
 
   def new
   end
