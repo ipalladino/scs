@@ -26,6 +26,14 @@ class StaticPagesController < ApplicationController
     )
   end
 
+  def send_contact
+    message = params['message']
+    
+    ContactMailer.contact_email(message).deliver
+
+    redirect_to "/thank_you"
+  end
+
   #design possibility
   def bookmarkers
   end

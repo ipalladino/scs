@@ -3,7 +3,9 @@
 	  <div class="row">
 	    <div class="col-lg-12" >
 	      <h2><%= obj.title %></h2>
-				<p><%= obj.description %></p>
+				<div style="text-align:justify;">
+					<%=  simple_format(obj.description) %>
+				</div>
 				<% if (!obj.button_link.empty? && obj.button_link != "#") %>
 					<p><a href="<%= obj.button_link %>" class="btn btn-default" role="button"><%= obj.button_text %></a></p>
 				<% end %>

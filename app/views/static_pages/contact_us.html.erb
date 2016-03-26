@@ -6,34 +6,44 @@
       <div class="col-xs-12">
         <h2>Getting Started</h2>
         <p>
-          Drop us a line or two. We’re excited to hear from you and get the ball rolling. If you hate waiting around for your inbox notifications, please feel free to give us a call at the office!
+          Drop us a line or two. We’re excited to hear from you and get the ball rolling. If you hate waiting around for your inbox notifications, please feel free to give us a call!
         </p>
 
-        <form>
+        <div>
+          <% flash.each do |key, value| %>
+            <div>
+              <a href="#" data-dismiss="alert">×</a>
+                <%= value %>
+            </div>
+          <% end %>
+        </div>
+
+        <form accept-charset="UTF-8" action="/send_contact" class="" id="ferrari-form" method="post">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
           <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" class="form-control" name="name" id="name" placeholder="Name">
+            <input type="text" class="form-control" name="message[name]" id="name" placeholder="Name">
           </div>
           <div class="form-group">
             <label for="email">Email address</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+            <input type="email" class="form-control" id="email" name="message[email]" placeholder="Email">
           </div>
 
           <div class="form-group">
             <label for="phone">Phone Number</label>
-            <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone Number">
+            <input type="text" class="form-control" id="phone" name="message[phone]" placeholder="Phone Number">
           </div>
 
           <div class="form-group">
             <label for="exampleInputFile">Message</label>
-            <textarea name="message"  rows="8" class="form-control"></textarea>
+            <textarea name="message[message]"  rows="8" class="form-control"></textarea>
           </div>
 
           <button type="submit" class="btn btn-default">Send!</button>
         </form>
 
-        <p>
-          Also, just a quick heads up, we won’t be adding your email to any subscriber lists. It’s just a conversation between the two of us, a dialogue. 
+        <p style="font-style:italic;">
+          Also, just a quick heads up, we won’t be adding your email to any subscriber lists. It’s just a conversation between the two of us, a dialogue.
         </p>
 
       </div>

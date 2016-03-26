@@ -25,7 +25,9 @@
 					  <div class="row">
 					    <div class="col-lg-6" >
 					      <h2><%= item.title %></h2>
-								<p><%= item.description %></p>
+								<div style="text-align: justify;">
+									<%= simple_format(item.description) %>
+								</div>
 								<% if(item.button_link != "#" && !item.button_link.empty?) %>
 									<a href="<%= item.button_link %>" class="btn btn-default" role="button"><%= item.button_text %></a>
 								<% end %>

@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
 
+  post '/send_contact' => 'static_pages#send_contact'
+
   resources :templates
 
   resources :menu_items do
