@@ -11,3 +11,11 @@ header {
     }
   }
 }
+
+@media (min-width: 768px) {
+  header {
+    .navbar-nav>li>a {
+      padding-top: 17px;
+    }
+  }
+}
